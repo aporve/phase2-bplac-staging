@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css"> -->
+    <!-- <link rel="stylesheet" href="../../public/webviews/aia_bplac_d2/assets/css/styles.css"> -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Yellow Messenger</title>
+
+    <!-- custom datePicker for safari -->
+    <script type="text/javascript">
+        var datefield = document.createElement("input")
+        datefield.setAttribute("type", "date")
+        if (datefield.type != "date") { //if browser doesn't support input type="date", load files for jQuery UI Date Picker
+            document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
+            document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"><\/script>\n')
+            document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n')
+            document.write('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />\n')
+            document.write('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.css" />\n')
+            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"><\/script>\n')
+            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"><\/script>\n')
+            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"><\/script>\n')
+        }
+    </script>
+    <script>
+        if (datefield.type != "date") { //if browser doesn't support input type="date", initialize date picker widget:
+            jQuery(function ($) { //on document.ready
+                $('#field_DOB').datepicker({ maxDate: -1, changeMonth: true, changeYear: true, dateFormat: 'dd-mm-yy' }).val();
+                $('#field_DOA').datepicker({ maxDate: 0, changeMonth: true, changeYear: true, dateFormat: 'dd-mm-yy' }).val();
+                $('#field_TOA').timepicker({ controlType: 'select', oneLine: true, timeInput: true, timeFormat: 'hh:mm tt' });
+            })
+        }
+    </script>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <main class="jumbotron jumbotron-fluid">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-10 container">
+                        <div style="display: flex;
+                        height: 100%;">
+                            <div class="col-2" style="margin-right:1rem;">
+                                <!-- <img class="icon1" src="../../public/webviews/aia_bplac_d2/assets/images/accidental.png" /> -->
+                                <img class="icon1" src="./assets/images/accidental.png" />
+                            </div>
+                            <div style="margin: 0 1rem; display: grid; max-height: 1%;">
+                                <h1 id="iconNearText" class="display-4 main__header" style="display: inline-block;
+                                align-self: flex-start;">ACCIDENT</h1>
+                                <p class="lead" style="display: inline-block;
+                                align-self: flex-end;">We have your back. We'll help you complete your claim request so
+                                    you can focus on your recovery.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </section>
+
+
+        <section id="stepper-progress">
+            <div class="container pl-pr-0">
+                <div class="row m-0">
+                    <div class="col-md-11 offset-md-1 p-0">
+                        <div class="md-stepper-horizontal blue">
+                            <div id="step1" class="md-step active">
+                                <div class="md-step-circle active"><span>1</span>
+                                </div>
+                                <div class="md-step-title">Fill out the form</div>
+                                <div class="md-step-bar-left"></div>
+                                <div class="md-step-bar-right"></div>
+                            </div>
+                            <div id="step2" class="md-step">
+                                <div class="md-step-circle"><span>2</span>
+                                </div>
+                                <div class="md-step-title">Submit your requirements</div>
+                                <div class="md-step-bar-left"></div>
+                                <div class="md-step-bar-right"></div>
+                            </div>
+                            <div id="step3" class="md-step">
+                                <div class="md-step-circle" id="step3_circle"><span id="step3_span">3</span>
+                                </div>
+                                <div class="md-step-title" id="step3_reference">Get your reference number</div>
+                                <div class="md-step-bar-left"></div>
+                                <div class="md-step-bar-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div>
+            <section style="margin-top: 2rem;">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-11 offset-md-1" id="stepper_intro">
+                            <div class="stepper__description">
+                                <h3 class="stepper__description__title">We're here with you on your road to recovery.
+                                </h3>
+                                <div class="stepper__description__info">
+                                    <p class="font-weight-normal">This won't take long. To start your claim request,
+                                        kindly fill out the form below.
+                                    </p>
+                                    <br />
+                                    <p class="font-italic font-weight-normal">Important Note: The session will end in
+                                        thirty (30) minutes. Have your policy information and documents ready so we can
+                                        complete your request before the session ends.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="form_wrapper" class="form__container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-11 offset-md-1">
+                                <form id="accidental__form" autocomplete="off" onSubmit="return false;" novalidate>
+                                    <div class="form__container">
+                                        <div class="row">
+                                            <input type="hidden" id="inputMailForm" />
+
+                                            <div class="col-12 col-md-6 order-1 order-md-1">
+                                                <p class="form__left__title">Basic Information</p>
+                                            </div>
+                                            <div class="col-12 col-md-6 order-6 order-md-2">
+                                                <p class="form__left__title">Accident Information</p>
+                                            </div>
+
+                                            <div class="col-12 col-md-6 order-3 order-md-3">
+                                                <p class="form__left__description">Please type the details of the
+                                                    Insured person stated in your policy contract.</p>
+                                                <div class="form-row">
+                                                    <div class="col-md-12 form__tags">
+                                                        <label for="validationCustom01">What is the
+                                                            Insured’s
+                                                            first name?</label>
+                                                        <input type="text" class="input__box" maxlength="25"
+                                                            id="field_firstName" value="" placeholder="First Name"
+                                                            tabindex="1"
+                                                            onkeypress="return isNotNumber(event) && checkSpcialChar(event) && checkLength(event, 25)"
+                                                            required />
+                                                        <div id="err_field_firstName" class="error"></div>
+                                                    </div>
+                                                    <div class="col-md-12 form__tags">
+                                                        <label for="validationCustom02">What is the
+                                                            Insured’s
+                                                            middle name?</label>
+                                                        <input type="text" class="input__box" maxlength="25"
+                                                            id="field_middleName" value="" placeholder="Middle Name"
+                                                            tabindex="2"
+                                                            onkeypress="return isNotNumber(event) && checkSpcialChar(event) && checkLength(event, 25)"
+                                                            required />
+                                                        <div id="err_field_middleName" class="error"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6 order-7 order-md-3">
+                                                <p style="margin-bottom: 0.5rem;">Please provide some
+                                                    details of the injury.</p>
+                                                <div class="form-row">
+                                                    <textarea class="input__box" maxlength="500" id="field_injury"
+                                                        rows="8" placeholder="Details of Injury" tabindex="10"
+                                                        onkeypress="removeErr(event)  || checkLength(event, 500)"></textarea>
+                                                    <div id="err_field_injury" class="error"></div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-12 col-md-6 order-3 order-md-4" style="padding: 0;">
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validationCustom02">What is the
+                                                        Insured’s
+                                                        last name?</label>
+                                                    <div class="row">
+                                                        <div class="col-md-9">
+                                                            <input type="text" class="input__box" maxlength="25"
+                                                                id="field_lastName" value="" placeholder="Last Name"
+                                                                tabindex="3"
+                                                                onkeypress="return isNotNumber(event) && checkSpcialChar(event) && checkLength(event, 25)"
+                                                                required />
+                                                            <div id="err_field_lastName" class="error">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <input type="text" class="input__box" maxlength="3"
+                                                                id="field_lastName_Suffix" value="" placeholder="Suffix"
+                                                                tabindex="4"
+                                                                onkeypress="return  isNotNumber(event) && checkSpcialChar(event) && checkLength(event, 3) "
+                                                                required />
+                                                            <div id="err_field_lastName_Suffix" class="error"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validationCustom02">What is the
+                                                        Insured’s
+                                                        date of birth?</label>
+                                                    <input type="date" class="input__box" id="field_DOB" value=""
+                                                        placeholder="Date of Birth" onkeypress="return false"
+                                                        tabindex="5" />
+                                                    <div id="err_field_DOB" class="error"></div>
+                                                </div>
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validationCustom02">What is your mobile
+                                                        number?</label>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div>
+                                                                <select class="custom-select-container mr-sm-2"
+                                                                    id="inlineFormCustomSelect" tabindex="6">
+                                                                    <option value="63" style="display:none">+63</option>
+                                                                    <option data-countryCode="PH" value="63">Philippines
+                                                                        (+63)
+                                                                    </option>
+                                                                    <!-- <optgroup label="Other countries">
+                                                                        <option data-countryCode="DZ" value="213">
+                                                                            Algeria (+213)
+                                                                        </option>
+                                                                        <option data-countryCode="AD" value="376">
+                                                                            Andorra (+376)
+                                                                        </option>
+                                                                        <option data-countryCode="AO" value="244">Angola
+                                                                            (+244)
+                                                                        </option>
+                                                                        <option data-countryCode="AI" value="1264">
+                                                                            Anguilla (+1264)
+                                                                        </option>
+                                                                        <option data-countryCode="AG" value="1268">
+                                                                            Antigua &amp;
+                                                                            Barbuda (+1268)</option>
+                                                                        <option data-countryCode="AR" value="54">
+                                                                            Argentina (+54)
+                                                                        </option>
+                                                                        <option data-countryCode="AM" value="374">
+                                                                            Armenia (+374)
+                                                                        </option>
+                                                                        <option data-countryCode="AW" value="297">Aruba
+                                                                            (+297)
+                                                                        </option>
+                                                                        <option data-countryCode="AU" value="61">
+                                                                            Australia (+61)
+                                                                        </option>
+                                                                        <option data-countryCode="AT" value="43">Austria
+                                                                            (+43)
+                                                                        </option>
+                                                                        <option data-countryCode="AZ" value="994">
+                                                                            Azerbaijan (+994)
+                                                                        </option>
+                                                                        <option data-countryCode="BS" value="1242">
+                                                                            Bahamas (+1242)
+                                                                        </option>
+                                                                        <option data-countryCode="BH" value="973">
+                                                                            Bahrain (+973)
+                                                                        </option>
+                                                                        <option data-countryCode="BD" value="880">
+                                                                            Bangladesh (+880)
+                                                                        </option>
+                                                                        <option data-countryCode="BB" value="1246">
+                                                                            Barbados (+1246)
+                                                                        </option>
+                                                                        <option data-countryCode="BY" value="375">
+                                                                            Belarus (+375)
+                                                                        </option>
+                                                                        <option data-countryCode="BE" value="32">Belgium
+                                                                            (+32)
+                                                                        </option>
+                                                                        <option data-countryCode="BZ" value="501">Belize
+                                                                            (+501)
+                                                                        </option>
+                                                                        <option data-countryCode="BJ" value="229">Benin
+                                                                            (+229)
+                                                                        </option>
+                                                                        <option data-countryCode="BM" value="1441">
+                                                                            Bermuda (+1441)
+                                                                        </option>
+                                                                        <option data-countryCode="BT" value="975">Bhutan
+                                                                            (+975)
+                                                                        </option>
+                                                                        <option data-countryCode="BO" value="591">
+                                                                            Bolivia (+591)
+                                                                        </option>
+                                                                        <option data-countryCode="BA" value="387">Bosnia
+                                                                            Herzegovina
+                                                                            (+387)</option>
+                                                                        <option data-countryCode="BW" value="267">
+                                                                            Botswana (+267)
+                                                                        </option>
+                                                                        <option data-countryCode="BR" value="55">Brazil
+                                                                            (+55)</option>
+                                                                        <option data-countryCode="BN" value="673">Brunei
+                                                                            (+673)
+                                                                        </option>
+                                                                        <option data-countryCode="BG" value="359">
+                                                                            Bulgaria (+359)
+                                                                        </option>
+                                                                        <option data-countryCode="BF" value="226">
+                                                                            Burkina Faso (+226)
+                                                                        </option>
+                                                                        <option data-countryCode="BI" value="257">
+                                                                            Burundi (+257)
+                                                                        </option>
+                                                                        <option data-countryCode="KH" value="855">
+                                                                            Cambodia (+855)
+                                                                        </option>
+                                                                        <option data-countryCode="CM" value="237">
+                                                                            Cameroon (+237)
+                                                                        </option>
+                                                                        <option data-countryCode="CA" value="1">Canada
+                                                                            (+1)</option>
+                                                                        <option data-countryCode="CV" value="238">Cape
+                                                                            Verde Islands
+                                                                            (+238)</option>
+                                                                        <option data-countryCode="KY" value="1345">
+                                                                            Cayman Islands
+                                                                            (+1345)</option>
+                                                                        <option data-countryCode="CF" value="236">
+                                                                            Central African
+                                                                            Republic (+236)</option>
+                                                                        <option data-countryCode="CL" value="56">Chile
+                                                                            (+56)</option>
+                                                                        <option data-countryCode="CN" value="86">China
+                                                                            (+86)</option>
+                                                                        <option data-countryCode="CO" value="57">
+                                                                            Colombia (+57)
+                                                                        </option>
+                                                                        <option data-countryCode="KM" value="269">
+                                                                            Comoros (+269)
+                                                                        </option>
+                                                                        <option data-countryCode="CG" value="242">Congo
+                                                                            (+242)
+                                                                        </option>
+                                                                        <option data-countryCode="CK" value="682">Cook
+                                                                            Islands (+682)
+                                                                        </option>
+                                                                        <option data-countryCode="CR" value="506">Costa
+                                                                            Rica (+506)
+                                                                        </option>
+                                                                        <option data-countryCode="HR" value="385">
+                                                                            Croatia (+385)
+                                                                        </option>
+                                                                        <option data-countryCode="CU" value="53">Cuba
+                                                                            (+53)</option>
+                                                                        <option data-countryCode="CY" value="90392">
+                                                                            Cyprus North
+                                                                            (+90392)</option>
+                                                                        <option data-countryCode="CY" value="357">Cyprus
+                                                                            South (+357)
+                                                                        </option>
+                                                                        <option data-countryCode="CZ" value="42">Czech
+                                                                            Republic (+42)
+                                                                        </option>
+                                                                        <option data-countryCode="DK" value="45">Denmark
+                                                                            (+45)
+                                                                        </option>
+                                                                        <option data-countryCode="DJ" value="253">
+                                                                            Djibouti (+253)
+                                                                        </option>
+                                                                        <option data-countryCode="DM" value="1809">
+                                                                            Dominica (+1809)
+                                                                        </option>
+                                                                        <option data-countryCode="DO" value="1809">
+                                                                            Dominican Republic
+                                                                            (+1809)</option>
+                                                                        <option data-countryCode="EC" value="593">
+                                                                            Ecuador (+593)
+                                                                        </option>
+                                                                        <option data-countryCode="EG" value="20">Egypt
+                                                                            (+20)</option>
+                                                                        <option data-countryCode="SV" value="503">El
+                                                                            Salvador (+503)
+                                                                        </option>
+                                                                        <option data-countryCode="GQ" value="240">
+                                                                            Equatorial Guinea
+                                                                            (+240)</option>
+                                                                        <option data-countryCode="ER" value="291">
+                                                                            Eritrea (+291)
+                                                                        </option>
+                                                                        <option data-countryCode="EE" value="372">
+                                                                            Estonia (+372)
+                                                                        </option>
+                                                                        <option data-countryCode="ET" value="251">
+                                                                            Ethiopia (+251)
+                                                                        </option>
+                                                                        <option data-countryCode="FK" value="500">
+                                                                            Falkland Islands
+                                                                            (+500)</option>
+                                                                        <option data-countryCode="FO" value="298">Faroe
+                                                                            Islands (+298)
+                                                                        </option>
+                                                                        <option data-countryCode="FJ" value="679">Fiji
+                                                                            (+679)</option>
+                                                                        <option data-countryCode="FI" value="358">
+                                                                            Finland (+358)
+                                                                        </option>
+                                                                        <option data-countryCode="FR" value="33">France
+                                                                            (+33)</option>
+                                                                        <option data-countryCode="GF" value="594">French
+                                                                            Guiana (+594)
+                                                                        </option>
+                                                                        <option data-countryCode="PF" value="689">French
+                                                                            Polynesia
+                                                                            (+689)</option>
+                                                                        <option data-countryCode="GA" value="241">Gabon
+                                                                            (+241)
+                                                                        </option>
+                                                                        <option data-countryCode="GM" value="220">Gambia
+                                                                            (+220)
+                                                                        </option>
+                                                                        <option data-countryCode="GE" value="7880">
+                                                                            Georgia (+7880)
+                                                                        </option>
+                                                                        <option data-countryCode="DE" value="49">Germany
+                                                                            (+49)
+                                                                        </option>
+                                                                        <option data-countryCode="GH" value="233">Ghana
+                                                                            (+233)
+                                                                        </option>
+                                                                        <option data-countryCode="GI" value="350">
+                                                                            Gibraltar (+350)
+                                                                        </option>
+                                                                        <option data-countryCode="GR" value="30">Greece
+                                                                            (+30)</option>
+                                                                        <option data-countryCode="GL" value="299">
+                                                                            Greenland (+299)
+                                                                        </option>
+                                                                        <option data-countryCode="GD" value="1473">
+                                                                            Grenada (+1473)
+                                                                        </option>
+                                                                        <option data-countryCode="GP" value="590">
+                                                                            Guadeloupe (+590)
+                                                                        </option>
+                                                                        <option data-countryCode="GU" value="671">Guam
+                                                                            (+671)</option>
+                                                                        <option data-countryCode="GT" value="502">
+                                                                            Guatemala (+502)
+                                                                        </option>
+                                                                        <option data-countryCode="GN" value="224">Guinea
+                                                                            (+224)
+                                                                        </option>
+                                                                        <option data-countryCode="GW" value="245">Guinea
+                                                                            - Bissau
+                                                                            (+245)</option>
+                                                                        <option data-countryCode="GY" value="592">Guyana
+                                                                            (+592)
+                                                                        </option>
+                                                                        <option data-countryCode="HT" value="509">Haiti
+                                                                            (+509)
+                                                                        </option>
+                                                                        <option data-countryCode="HN" value="504">
+                                                                            Honduras (+504)
+                                                                        </option>
+                                                                        <option data-countryCode="HK" value="852">Hong
+                                                                            Kong (+852)
+                                                                        </option>
+                                                                        <option data-countryCode="HU" value="36">Hungary
+                                                                            (+36)
+                                                                        </option>
+                                                                        <option data-countryCode="IN" value="91">India
+                                                                            (+91)
+                                                                        </option>
+                                                                        <option data-countryCode="IS" value="354">
+                                                                            Iceland (+354)
+                                                                        </option>
+                                                                        <option data-countryCode="ID" value="62">
+                                                                            Indonesia (+62)
+                                                                        </option>
+                                                                        <option data-countryCode="IR" value="98">Iran
+                                                                            (+98)</option>
+                                                                        <option data-countryCode="IQ" value="964">Iraq
+                                                                            (+964)</option>
+                                                                        <option data-countryCode="IE" value="353">
+                                                                            Ireland (+353)
+                                                                        </option>
+                                                                        <option data-countryCode="IL" value="972">Israel
+                                                                            (+972)
+                                                                        </option>
+                                                                        <option data-countryCode="IT" value="39">Italy
+                                                                            (+39)</option>
+                                                                        <option data-countryCode="JM" value="1876">
+                                                                            Jamaica (+1876)
+                                                                        </option>
+                                                                        <option data-countryCode="JP" value="81">Japan
+                                                                            (+81)</option>
+                                                                        <option data-countryCode="JO" value="962">Jordan
+                                                                            (+962)
+                                                                        </option>
+                                                                        <option data-countryCode="KZ" value="7">
+                                                                            Kazakhstan (+7)
+                                                                        </option>
+                                                                        <option data-countryCode="KE" value="254">Kenya
+                                                                            (+254)
+                                                                        </option>
+                                                                        <option data-countryCode="KI" value="686">
+                                                                            Kiribati (+686)
+                                                                        </option>
+                                                                        <option data-countryCode="KP" value="850">Korea
+                                                                            North (+850)
+                                                                        </option>
+                                                                        <option data-countryCode="KR" value="82">Korea
+                                                                            South (+82)
+                                                                        </option>
+                                                                        <option data-countryCode="KW" value="965">Kuwait
+                                                                            (+965)
+                                                                        </option>
+                                                                        <option data-countryCode="KG" value="996">
+                                                                            Kyrgyzstan (+996)
+                                                                        </option>
+                                                                        <option data-countryCode="LA" value="856">Laos
+                                                                            (+856)</option>
+                                                                        <option data-countryCode="LV" value="371">Latvia
+                                                                            (+371)
+                                                                        </option>
+                                                                        <option data-countryCode="LB" value="961">
+                                                                            Lebanon (+961)
+                                                                        </option>
+                                                                        <option data-countryCode="LS" value="266">
+                                                                            Lesotho (+266)
+                                                                        </option>
+                                                                        <option data-countryCode="LR" value="231">
+                                                                            Liberia (+231)
+                                                                        </option>
+                                                                        <option data-countryCode="LY" value="218">Libya
+                                                                            (+218)
+                                                                        </option>
+                                                                        <option data-countryCode="LI" value="417">
+                                                                            Liechtenstein (+417)
+                                                                        </option>
+                                                                        <option data-countryCode="LT" value="370">
+                                                                            Lithuania (+370)
+                                                                        </option>
+                                                                        <option data-countryCode="LU" value="352">
+                                                                            Luxembourg (+352)
+                                                                        </option>
+                                                                        <option data-countryCode="MO" value="853">Macao
+                                                                            (+853)
+                                                                        </option>
+                                                                        <option data-countryCode="MK" value="389">
+                                                                            Macedonia (+389)
+                                                                        </option>
+                                                                        <option data-countryCode="MG" value="261">
+                                                                            Madagascar (+261)
+                                                                        </option>
+                                                                        <option data-countryCode="MW" value="265">Malawi
+                                                                            (+265)
+                                                                        </option>
+                                                                        <option data-countryCode="MY" value="60">
+                                                                            Malaysia (+60)
+                                                                        </option>
+                                                                        <option data-countryCode="MV" value="960">
+                                                                            Maldives (+960)
+                                                                        </option>
+                                                                        <option data-countryCode="ML" value="223">Mali
+                                                                            (+223)</option>
+                                                                        <option data-countryCode="MT" value="356">Malta
+                                                                            (+356)
+                                                                        </option>
+                                                                        <option data-countryCode="MH" value="692">
+                                                                            Marshall Islands
+                                                                            (+692)</option>
+                                                                        <option data-countryCode="MQ" value="596">
+                                                                            Martinique (+596)
+                                                                        </option>
+                                                                        <option data-countryCode="MR" value="222">
+                                                                            Mauritania (+222)
+                                                                        </option>
+                                                                        <option data-countryCode="YT" value="269">
+                                                                            Mayotte (+269)
+                                                                        </option>
+                                                                        <option data-countryCode="MX" value="52">Mexico
+                                                                            (+52)</option>
+                                                                        <option data-countryCode="FM" value="691">
+                                                                            Micronesia (+691)
+                                                                        </option>
+                                                                        <option data-countryCode="MD" value="373">
+                                                                            Moldova (+373)
+                                                                        </option>
+                                                                        <option data-countryCode="MC" value="377">Monaco
+                                                                            (+377)
+                                                                        </option>
+                                                                        <option data-countryCode="MN" value="976">
+                                                                            Mongolia (+976)
+                                                                        </option>
+                                                                        <option data-countryCode="MS" value="1664">
+                                                                            Montserrat (+1664)
+                                                                        </option>
+                                                                        <option data-countryCode="MA" value="212">
+                                                                            Morocco (+212)
+                                                                        </option>
+                                                                        <option data-countryCode="MZ" value="258">
+                                                                            Mozambique (+258)
+                                                                        </option>
+                                                                        <option data-countryCode="MN" value="95">Myanmar
+                                                                            (+95)
+                                                                        </option>
+                                                                        <option data-countryCode="NA" value="264">
+                                                                            Namibia (+264)
+                                                                        </option>
+                                                                        <option data-countryCode="NR" value="674">Nauru
+                                                                            (+674)
+                                                                        </option>
+                                                                        <option data-countryCode="NP" value="977">Nepal
+                                                                            (+977)
+                                                                        </option>
+                                                                        <option data-countryCode="NL" value="31">
+                                                                            Netherlands (+31)
+                                                                        </option>
+                                                                        <option data-countryCode="NC" value="687">New
+                                                                            Caledonia (+687)
+                                                                        </option>
+                                                                        <option data-countryCode="NZ" value="64">New
+                                                                            Zealand (+64)
+                                                                        </option>
+                                                                        <option data-countryCode="NI" value="505">
+                                                                            Nicaragua (+505)
+                                                                        </option>
+                                                                        <option data-countryCode="NE" value="227">Niger
+                                                                            (+227)
+                                                                        </option>
+                                                                        <option data-countryCode="NG" value="234">
+                                                                            Nigeria (+234)
+                                                                        </option>
+                                                                        <option data-countryCode="NU" value="683">Niue
+                                                                            (+683)</option>
+                                                                        <option data-countryCode="NF" value="672">
+                                                                            Norfolk Islands
+                                                                            (+672)</option>
+                                                                        <option data-countryCode="NP" value="670">
+                                                                            Northern Marianas
+                                                                            (+670)</option>
+                                                                        <option data-countryCode="NO" value="47">Norway
+                                                                            (+47)</option>
+                                                                        <option data-countryCode="OM" value="968">Oman
+                                                                            (+968)</option>
+                                                                        <option data-countryCode="PW" value="680">Palau
+                                                                            (+680)
+                                                                        </option>
+                                                                        <option data-countryCode="PA" value="507">Panama
+                                                                            (+507)
+                                                                        </option>
+                                                                        <option data-countryCode="PG" value="675">Papua
+                                                                            New Guinea
+                                                                            (+675)</option>
+                                                                        <option data-countryCode="PY" value="595">
+                                                                            Paraguay (+595)
+                                                                        </option>
+                                                                        <option data-countryCode="PE" value="51">Peru
+                                                                            (+51)</option>
+                                                                        <option data-countryCode="PL" value="48">Poland
+                                                                            (+48)</option>
+                                                                        <option data-countryCode="PT" value="351">
+                                                                            Portugal (+351)
+                                                                        </option>
+                                                                        <option data-countryCode="PR" value="1787">
+                                                                            Puerto Rico (+1787)
+                                                                        </option>
+                                                                        <option data-countryCode="QA" value="974">Qatar
+                                                                            (+974)
+                                                                        </option>
+                                                                        <option data-countryCode="RE" value="262">
+                                                                            Reunion (+262)
+                                                                        </option>
+                                                                        <option data-countryCode="RO" value="40">Romania
+                                                                            (+40)
+                                                                        </option>
+                                                                        <option data-countryCode="RU" value="7">Russia
+                                                                            (+7)</option>
+                                                                        <option data-countryCode="RW" value="250">Rwanda
+                                                                            (+250)
+                                                                        </option>
+                                                                        <option data-countryCode="SM" value="378">San
+                                                                            Marino (+378)
+                                                                        </option>
+                                                                        <option data-countryCode="ST" value="239">Sao
+                                                                            Tome &amp;
+                                                                            Principe (+239)</option>
+                                                                        <option data-countryCode="SA" value="966">Saudi
+                                                                            Arabia (+966)
+                                                                        </option>
+                                                                        <option data-countryCode="SN" value="221">
+                                                                            Senegal (+221)
+                                                                        </option>
+                                                                        <option data-countryCode="CS" value="381">Serbia
+                                                                            (+381)
+                                                                        </option>
+                                                                        <option data-countryCode="SC" value="248">
+                                                                            Seychelles (+248)
+                                                                        </option>
+                                                                        <option data-countryCode="SL" value="232">Sierra
+                                                                            Leone (+232)
+                                                                        </option>
+                                                                        <option data-countryCode="SG" value="65">
+                                                                            Singapore (+65)
+                                                                        </option>
+                                                                        <option data-countryCode="SK" value="421">Slovak
+                                                                            Republic
+                                                                            (+421)</option>
+                                                                        <option data-countryCode="SI" value="386">
+                                                                            Slovenia (+386)
+                                                                        </option>
+                                                                        <option data-countryCode="SB" value="677">
+                                                                            Solomon Islands
+                                                                            (+677)</option>
+                                                                        <option data-countryCode="SO" value="252">
+                                                                            Somalia (+252)
+                                                                        </option>
+                                                                        <option data-countryCode="ZA" value="27">South
+                                                                            Africa (+27)
+                                                                        </option>
+                                                                        <option data-countryCode="ES" value="34">Spain
+                                                                            (+34)</option>
+                                                                        <option data-countryCode="LK" value="94">Sri
+                                                                            Lanka (+94)
+                                                                        </option>
+                                                                        <option data-countryCode="SH" value="290">St.
+                                                                            Helena (+290)
+                                                                        </option>
+                                                                        <option data-countryCode="KN" value="1869">St.
+                                                                            Kitts (+1869)
+                                                                        </option>
+                                                                        <option data-countryCode="SC" value="1758">St.
+                                                                            Lucia (+1758)
+                                                                        </option>
+                                                                        <option data-countryCode="SD" value="249">Sudan
+                                                                            (+249)
+                                                                        </option>
+                                                                        <option data-countryCode="SR" value="597">
+                                                                            Suriname (+597)
+                                                                        </option>
+                                                                        <option data-countryCode="SZ" value="268">
+                                                                            Swaziland (+268)
+                                                                        </option>
+                                                                        <option data-countryCode="SE" value="46">Sweden
+                                                                            (+46)</option>
+                                                                        <option data-countryCode="CH" value="41">
+                                                                            Switzerland (+41)
+                                                                        </option>
+                                                                        <option data-countryCode="SI" value="963">Syria
+                                                                            (+963)
+                                                                        </option>
+                                                                        <option data-countryCode="TW" value="886">Taiwan
+                                                                            (+886)
+                                                                        </option>
+                                                                        <option data-countryCode="TJ" value="7">
+                                                                            Tajikstan (+7)
+                                                                        </option>
+                                                                        <option data-countryCode="TH" value="66">
+                                                                            Thailand (+66)
+                                                                        </option>
+                                                                        <option data-countryCode="TG" value="228">Togo
+                                                                            (+228)</option>
+                                                                        <option data-countryCode="TO" value="676">Tonga
+                                                                            (+676)
+                                                                        </option>
+                                                                        <option data-countryCode="TT" value="1868">
+                                                                            Trinidad &amp;
+                                                                            Tobago (+1868)</option>
+                                                                        <option data-countryCode="TN" value="216">
+                                                                            Tunisia (+216)
+                                                                        </option>
+                                                                        <option data-countryCode="TR" value="90">Turkey
+                                                                            (+90)</option>
+                                                                        <option data-countryCode="TM" value="7">
+                                                                            Turkmenistan (+7)
+                                                                        </option>
+                                                                        <option data-countryCode="TM" value="993">
+                                                                            Turkmenistan (+993)
+                                                                        </option>
+                                                                        <option data-countryCode="TC" value="1649">Turks
+                                                                            &amp; Caicos
+                                                                            Islands (+1649)</option>
+                                                                        <option data-countryCode="TV" value="688">Tuvalu
+                                                                            (+688)
+                                                                        </option>
+                                                                        <option data-countryCode="UG" value="256">Uganda
+                                                                            (+256)
+                                                                        </option>
+                                                                        <option data-countryCode="GB" value="44">UK
+                                                                            (+44)</option>
+                                                                        <option data-countryCode="UA" value="380">
+                                                                            Ukraine (+380)
+                                                                        </option>
+                                                                        <option data-countryCode="AE" value="971">United
+                                                                            Arab Emirates
+                                                                            (+971)</option>
+                                                                        <option data-countryCode="UY" value="598">
+                                                                            Uruguay (+598)
+                                                                        </option>
+                                                                        <option data-countryCode="US" value="1">USA (+1)
+                                                                        </option>
+                                                                        <option data-countryCode="UZ" value="7">
+                                                                            Uzbekistan (+7)
+                                                                        </option>
+                                                                        <option data-countryCode="VU" value="678">
+                                                                            Vanuatu (+678)
+                                                                        </option>
+                                                                        <option data-countryCode="VA" value="379">
+                                                                            Vatican City (+379)
+                                                                        </option>
+                                                                        <option data-countryCode="VE" value="58">
+                                                                            Venezuela (+58)
+                                                                        </option>
+                                                                        <option data-countryCode="VN" value="84">Vietnam
+                                                                            (+84)
+                                                                        </option>
+                                                                        <option data-countryCode="VG" value="84">Virgin
+                                                                            Islands -
+                                                                            British (+1284)</option>
+                                                                        <option data-countryCode="VI" value="84">Virgin
+                                                                            Islands - US
+                                                                            (+1340)</option>
+                                                                        <option data-countryCode="WF" value="681">Wallis
+                                                                            &amp; Futuna
+                                                                            (+681)</option>
+                                                                        <option data-countryCode="YE" value="969">Yemen
+                                                                            (North)(+969)
+                                                                        </option>
+                                                                        <option data-countryCode="YE" value="967">Yemen
+                                                                            (South)(+967)
+                                                                        </option>
+                                                                        <option data-countryCode="ZM" value="260">Zambia
+                                                                            (+260)
+                                                                        </option>
+                                                                        <option data-countryCode="ZW" value="263">
+                                                                            Zimbabwe (+263)
+                                                                        </option>
+                                                                    </optgroup> -->
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="input__box" maxlength="10"
+                                                                id="field_mobileNum" value=""
+                                                                placeholder="Mobile Number"
+                                                                onkeypress="return isNumber(event) && check_Mobile_Length(event, 10) "
+                                                                tabindex="7" required />
+                                                            <div id="err_field_mobileNum" class="error">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6 order-8 order-md-5" style="padding: 0;">
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validationCustom02">When did the
+                                                        accident
+                                                        happen?</label>
+                                                    <input type="date" class="input__box" id="field_DOA" value=""
+                                                        placeholder="Date of Accident" onkeypress="return false"
+                                                        tabindex="11" required />
+                                                    <div id="err_field_DOA" class="error"></div>
+                                                </div>
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validationCustom02">What time did the
+                                                        accident happen?</label>
+                                                    <!-- <input type="text" class="input__box" id="field_TOA"
+                                                        value="" placeholder="Time of Accident"
+                                                        tabindex="12" required /> -->
+                                                    <input type="time" id="field_TOA" class="input__box" min="09:00"
+                                                        max="18:00" tabindex="12" required />
+                                                    <div id="err_field_TOA" class="error"></div>
+                                                </div>
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validationCustom02">Where did the
+                                                        accident
+                                                        happen?</label>
+                                                    <input type="text" class="input__box" id="field_POA" maxlength="120"
+                                                        value="" placeholder="Place of Accident" tabindex="13"
+                                                        onkeypress="removeErr(event) ||  checkLength(event, 120)" />
+                                                    <div id="err_field_POA" class="error"></div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-12 col-md-6 order-4 order-md-7" style="padding: 0;">
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validationCustom02">What is your email
+                                                        address?</label>
+                                                    <input type="text" class="input__box" maxlength="45"
+                                                        id="field_emailAddress" value="" placeholder="Email Address"
+                                                        tabindex="8"
+                                                        onkeypress="removeErr(event) || checkLength(event, 45)"
+                                                        required />
+                                                    <div id="err_field_emailAddress" class="error">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6 order-9 order-md-8" style="margin-top: 3rem;">
+                                                <div class="form-group">
+                                                    <div class="form-check-accidental">
+                                                        <input class="form-check-input-box" type="checkbox" value=""
+                                                            id="invalidCheck_basic" tabindex="14" required>
+                                                        <label class="form-check-label-checkbox" for="invalidCheck">I
+                                                            have provided the
+                                                            correct
+                                                            basic information.</label>
+                                                        <div id="err_invalidCheck_basic" class="error">
+                                                            You
+                                                            must agree before submitting.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-md-6 order-5 order-md-9" style="padding: 0;">
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validationCustom02">What is your home
+                                                        address?</label>
+                                                    <input type="text" class="input__box" maxlength="250"
+                                                        id="field_homeAddress" value="" placeholder="Home Address"
+                                                        tabindex="9"
+                                                        onkeypress="removeErr(event) || checkLength(event, 250)"
+                                                        required />
+                                                    <div id="err_field_homeAddress" class="error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-md-6 order-10 order-md-10" style="margin-top: 3rem;">
+                                                <div class="form-group">
+                                                    <div class="form-check-accidental">
+                                                        <input class="form-check-input-box" type="checkbox" value=""
+                                                            id="invalidCheck_privacy" tabindex="15" required>
+                                                        <label class="form-check-label-checkbox" for="invalidCheck">I
+                                                            have read and
+                                                            understood
+                                                            the Terms and Conditions in the <a
+                                                                href="#accidental_data_privacy">Data
+                                                                Privacy
+                                                                Statement.</a>
+                                                        </label>
+                                                        <div id="err_invalidCheck_privacy" class="error">You
+                                                            must agree before submitting.</div>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-next-form submit__btn"
+                                                    tabindex="16" id="next"
+                                                    style="width: 50%; margin: 4rem 0 2rem 0;">NEXT</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="privacy__page" id="accidental_data_privacy">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-11 offset-md-1" style="margin-top: 4rem;">
+                            <p class="privacy_title">PRIVACY NOTICE</p>
+                            <ul class="privacy_ul">
+                                <li>The Company values your privacy and we abide by the Principles of Transparency,
+                                    Legitimate Purpose and Proportionality enshrined in the Philippine Data Privacy Act
+                                    of
+                                    2012.</li>
+                                <li>Accordingly, the Company processes, using any medium, any information pertaining to
+                                    this
+                                    application or
+                                    insurance policy and all submitted documents, to provide our insurance and
+                                    investment
+                                    products and
+                                    services. The information and documents is also disclosed to the Company’s
+                                    affiliations
+                                    (including but not
+                                    limited to any of its subsidiaries/affiliates in the Asia Pacific Region), its
+                                    Brokers,
+                                    Agents, and their
+                                    employees and staff and to accredited/affiliated third parties or
+                                    independent/non-affiliated third parties,
+                                    whether local or foreign. The Company will upload your medical information to a
+                                    Medical
+                                    Information
+                                    Database accessible to life insurance companies for the purpose of enhancing risk
+                                    assessment and
+                                    preventing fraud. Once uploaded, all life insurance companies will only have limited
+                                    access to the said
+                                    medical information in order to protect my/our right to privacy in accordance with
+                                    law.
+                                    A copy of Circular
+                                    Letter No. 2016-54 may be accessed at the Insurance Commission’s website at
+                                    <a href="https://www.insurance.gov.ph" target="_blank">www.insurance.gov.ph</a>.
+                                </li>
+
+                                <li>
+                                    Your information and documents are retained by the Company (a) from execution until
+                                    seven (7) years after
+                                    termination of your policy, for hard documents in paper form, and (b) from execution
+                                    until ten (10) years
+                                    after termination of your policy, for documents in electronic form; but in no case
+                                    shorter than may be
+                                    required by appropriate orders and regulations. Your information will be
+                                    deleted/destroyed after this period.
+                                </li>
+
+                                <li>
+                                    The Company will use such information in the insurance policy and all related
+                                    documents
+                                    to conduct
+                                    automated processing, data analytics, profiling, historical research (a) to improve
+                                    the
+                                    Company’s internal
+                                    systems and processes, (b) for actuarial assumptions, (c) in internal and external
+                                    company
+                                    reports, and
+                                    (d) to develop and implement business strategies.
+
+                                </li>
+
+                                <li>
+                                    Please visit our website, <a href="https://www.bpi-philam.com"
+                                        target="_blank">www.bpi-philam.com</a> for our Privacy Statement, which
+                                    provides
+                                    further details on
+                                    why your personal data is collected, how it is intended to be used, to whom your
+                                    personal data may be
+                                    transferred to, how to access, review and amend your personal data, and our policies
+                                    on
+                                    direct marketing.
+                                </li>
+
+                            </ul>
+
+                            <p class="privacy_title">PRIVACY CONSENT</p>
+                            <ul class="privacy_consent">
+                                <li style="list-style: none;">
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="privacy_consent_1">
+                                        <p class="privacy_consent" style="margin-left: 1rem;">
+                                            I/we agree for the Company to use the information in the insurance policy
+                                            and
+                                            all related documents in the
+                                            design and communication of the Company’s marketing campaigns and offers in
+                                            order to improve the
+                                            quality of service the Company provides, and to receive such marketing
+                                            campaigns.
+                                           
+                                        </p>
+                                        <p id="err_privacy_consent1" class="error" style="margin-left: 5rem"></p>
+                                    </div>
+                                </li>
+                                <!-- I/we agree to share the information in the insurance policy with third
+                                parties for marketing campaigns. -->
+                                <li style="list-style: none;">
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="privacy_consent_2">
+                                        <p class="privacy_consent" style="margin-left: 1rem;">
+                                            I/we agree for the Company to use such information for profiling to develop,
+                                            enhance and offer me/us
+                                            financial services and products that the Company considers as suitable for
+                                            my/our insurance and other
+                                            financial needs.
+                                        </p>
+                                        <p id="err_privacy_consent2" class="error" style="margin-left: 5rem"></p>
+                                    </div>
+                                </li>
+                                <!-- <li style="list-style: none;margin-top: 0;  margin-left: 0;">
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="privacy_consent_3">
+                                        <p class="privacy_consent" style="margin-left: 1rem;">
+                                            I/we agree to share the information in the insurance policy with third
+                                            parties for marketing campaigns.
+                                        </p>
+                                        <p id="err_privacy_consent3" class="error" style="margin-left: 5rem"></p>
+                                    </div>
+                                </li> -->
+                                <li>
+                                    <p style="margin-left: 1rem;">
+                                        I/we may at anytime withdraw my/our consent by calling 02 8528-5501 or by
+                                        emailing the request to <a target="_blank"
+                                            href="mailto:phi.philamprivacy@aia.com">phi.philamprivacy@aia.com</a>.Upon
+                                        receipt of such withdrawal of consent, the Company will no longer approach you
+                                        for promotions or products that may
+                                        be suited to your insurance needs. However, rest assured that this will not
+                                        affect our ability to provide quality
+                                        service in relation to your existing policies.
+                                    </p>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="requirements" class="hide">
+            <section class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-11 offset-md-1">
+                            <h3>We're just a few steps away from submitting your request.</h3>
+                            <br />
+                            <p class="font-weight-normal">Please upload clear copies of the requirements below.</p>
+                            <!--   <p class="font-italic font-weight-normal">Important Note!  The Insured's valid government ID should have a clear, legible signature.</p> -->
+                            <p class="font-italic font-weight-normal">Important Note! The insured’s valid government ID
+                                should have a clear, legible signature. If you need to submit a document with multiple
+                                pages for a single requirement, please upload as a single/consolidated PDF file.</p>
+
+                            <div class="row upload_form">
+                                <div class="col-12 col-md-6">
+                                    <div class="col-12 col-md-6" style="padding: 0; margin: 1.5rem 0;">
+                                        <p class="upload_btn_title">Valid Government ID (Front)</p>
+                                        <span class="btn btn-file">
+                                            Upload<input type="file" id="file_Upload_1">
+                                            <span id="file_loader_icon_1" class="loader"></span>
+                                            <span id="file_Upload_Tick_1" class="upload_btn_span">&#10004;</span>
+                                            <span id="file_upload_cancle_1" class="upload_btn_span">&#10006;</span>
+                                        </span>
+                                        <small id="passwordHelpBlock" class="form-text text-muted">
+                                            Acceptable format .jpg .pdf & 5MB size.
+                                        </small>
+                                    </div>
+
+                                    <div class="col-12 col-md-6" style="padding: 0; margin: 1.5rem 0;">
+                                        <p class="upload_btn_title">Valid Government ID (Back)</p>
+                                        <span class="btn btn-file">
+                                            Upload<input type="file" id="file_Upload_2">
+                                            <span id="file_loader_icon_2" class="loader"></span>
+                                            <span id="file_Upload_Tick_2" class="upload_btn_span">&#10004;</span>
+                                            <span id="file_upload_cancle_2" class="upload_btn_span">&#10006;</span>
+                                        </span>
+                                        <small id="passwordHelpBlock" class="form-text text-muted">
+                                            Acceptable format .jpg .pdf & 5MB size.
+                                        </small>
+                                    </div>
+
+
+                                    <div class="col-12 col-md-6" style="padding: 0; margin: 1.5rem 0;">
+                                        <p class="upload_btn_title">Attending Physician’s Statement (APS)</p>
+                                        <span class="btn btn-file">
+                                            Upload<input type="file" id="file_Upload_3">
+                                            <span id="file_Upload_Tick_3" class="upload_btn_span">&#10004;</span>
+                                            <span id="file_loader_icon_3" class="loader"></span>
+                                            <span id="file_upload_cancle_3" class="upload_btn_span">&#10006;</span>
+                                        </span>
+                                        <small id="passwordHelpBlock" class="form-text text-muted">
+                                            Acceptable format .jpg .pdf & 5MB size.
+                                        </small>
+                                    </div>
+
+                                    <div class="col-12 col-md-6" style="padding: 0; margin: 1.5rem 0;">
+                                        <p class="upload_btn_title">Police or Narration Report</p>
+                                        <span class="btn btn-file">
+                                            Upload<input type="file" id="file_Upload_4">
+                                            <span id="file_Upload_Tick_4" class="upload_btn_span">&#10004;</span>
+                                            <span id="file_loader_icon_4" class="loader"></span>
+                                            <span id="file_upload_cancle_4" class="upload_btn_span">&#10006;</span>
+                                        </span>
+                                        <small id="passwordHelpBlock" class="form-text text-muted">
+                                            Acceptable format .jpg .pdf & 5MB size.
+                                        </small>
+                                    </div>
+
+                                    <div class="col-12 col-md-6" style="padding: 0; margin: 1.5rem 0;">
+                                        <p class="upload_btn_title">Official Receipts (ORs)</p>
+                                        <span class="btn btn-file">
+                                            Upload<input type="file" id="file_Upload_5">
+                                            <span id="file_Upload_Tick_5" class="upload_btn_span">&#10004;</span>
+                                            <span id="file_loader_icon_5" class="loader"></span>
+                                            <span id="file_upload_cancle_5" class="upload_btn_span">&#10006;</span>
+                                        </span>
+                                        <small id="passwordHelpBlock" class="form-text text-muted">
+                                            Acceptable format .jpg .pdf & 5MB size.
+                                        </small>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-12 col-md-6">
+
+
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="upload_invalidCheck_1" required>
+                                            <div class="form-check-label" for="invalidCheck">
+                                                To fast-track the processing of my claim request, I am authorizing
+                                                BPI AIA to contact my doctor directly to verify the documents I
+                                                submitted.
+                                                <div class="feedback_label">
+                                                    Kindly inform your doctor that BPI AIA will reach out to them to
+                                                    verify
+                                                    your submitted documents.
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="upload_invalidCheck_2" required>
+                                            <label class="form-check-label" for="invalidCheck">
+                                                I certify that all the information and documents
+                                                submitted here are true and accurate. I also
+                                                understand that I may be fined double the
+                                                amount claimed and/or imprisoned for two (2)
+                                                years for any fraudulent claim made as outlined
+                                                under <a href="#insurance_code_policy">Section 251 of the Insurance
+                                                    Code</a>
+                                            </label>
+                                        </div>
+
+                                        <!-- <div class="card" id="warning_parent">
+                                            <div class="card-body" style="display: flex;padding: 0.5rem;">
+                                                <div style="font-size: 1.8rem;">
+                                                    <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                        class="bi bi-exclamation-triangle-fill" fill="currentColor"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd"
+                                                            d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 5zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                                    </svg>
+                                                </div>
+                                                <div id="upload_warning" style="padding: 0 0.9rem;">
+                                                    Warning: We detected a virus/malware
+                                                    in your uploaded documents. Please
+                                                    re-upload a clean, virus-free document
+                                                    to proceed.
+                                                </div>
+
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div class="card" id="warning_parent">
+                                        <div class="card-body" style="display: flex;padding: 0.5rem;">
+                                            <div style="font-size: 1.8rem;">
+                                                <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                    class="bi bi-exclamation-triangle-fill" fill="currentColor"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 5zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                                </svg>
+                                            </div>
+                                            <div id="upload_warning" style="padding: 0 0.9rem;">
+                                                Warning: We detected a virus/malware
+                                                in your uploaded documents. Please
+                                                re-upload a clean, virus-free document
+                                                to proceed.
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="display: flex; justify-content: flex-end;">
+                                        <a href="#" onclick="goBack()"
+                                            style="align-self: flex-end; color: #b8123e; padding: 0 1rem; margin: 0 0">Back</a>
+                                        <button style="width: 50%;" type="submit" onclick="buttonSubmitClicked(event)"
+                                            class="btn submit__btn" id='files_upload_btn'>Submit
+                                            <!-- <div class="loader1" id="spin_loader_4">
+                                                <div class="loader-bg">
+                                                    <div class="text"></div>
+                                                </div>
+                                                <div class="spiner-holder-one animate-0-25-a">
+                                                    <div class="spiner-holder-two animate-0-25-b">
+                                                        <div class="loader-spiner"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="spiner-holder-one animate-25-50-a">
+                                                    <div class="spiner-holder-two animate-25-50-b">
+                                                        <div class="loader-spiner"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="spiner-holder-one animate-50-75-a">
+                                                    <div class="spiner-holder-two animate-50-75-b">
+                                                        <div class="loader-spiner"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="spiner-holder-one animate-75-100-a">
+                                                    <div class="spiner-holder-two animate-75-100-b">
+                                                        <div class="loader-spiner"></div>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </button>
+                                        <button id='upload_waiting_btn' type="button" class="btn btn-danger"
+                                            style="width: 50%;padding: 0;display: none"><span
+                                                class="loading"></span></button>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-12 col-md-12">
+									<div class="row">
+										<div class="col-12 col-md-6">
+											<div class="card" id="warning_parent">
+												<div class="card-body" style="display: flex;padding: 0.5rem;">
+													<div style="font-size: 1.8rem;">
+														<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-exclamation-triangle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+															<path fill-rule="evenodd" d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 5zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+														</svg>
+													</div>
+													<div id="upload_warning" style="padding: 0 0.9rem;">Warning: We detected a virus/malware in your uploaded documents. Please re-upload a clean, virus-free document to proceed.</div>
+												</div>
+											</div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <button type="submit" onclick="buttonSubmitClicked(event)" class="btn submit__btn"
+                                            style="width: 50%;">Submit</button>
+                                        </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="privacy__page" id="insurance_code_policy">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-11 offset-md-1" style="margin-top: 4rem;">
+                            <p class="privacy_title">SECTION 251 OF THE INSURANCE CODE</p>
+                            <p style="margin: 2rem 0 2rem 0;">
+                                Section 251 of the Insurance Code, as amended, imposes a fine not exceeding twice the
+                                amount
+                                claimed and/or
+                                imprisonment of two (2) years, or both, at the discretion of the court, to any person
+                                who
+                                presents or causes to be
+                                presented any fraudulent claim for the payment of a loss under a contract of insurance,
+                                and
+                                who fraudulently
+                                prepares, makes or subscribes any writing with intent to present or use the same, or to
+                                allow it to be presented
+                                in support of any claim.
+                            </p>
+                            <p style="margin: 2rem 0;">
+                                A copy of Circular Letter No. 2016-50 may be accessed at the Insurance Commission’s
+                                website
+                                at
+                                <a href="https://www.insurance.gov.ph." target="_blank">www.insurance.gov.ph.</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="jumbotron jumbotron-fluid hide" id="payment">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-11 offset-md-1">
+                        <h4>Once your claim is approved, how would you like to receive the benefit?</h4>
+                        <br />
+                        <p class="font-weight-normal">Choose from any of the payout options below.</p>
+                        <div class="row" style="justify-content: center;margin: 4rem 0;">
+                            <div class="col-12 col-md-3" style="cursor: pointer; margin: 0 3rem;"
+                                onclick="bankTranfer()">
+                                <div class="column box-shadow" style="text-align: center;">
+                                    <!-- <img class="lib-img" src="../../public/webviews/aia_bplac_d2/assets/images/bank_transfer.png" style="width: 85%;"> -->\
+                                    <img class="lib-img" src="./assets/images/bank_transfer.png" style="width: 85%;">
+                                    <div class="lib-row lib-desc" style="text-align: center; margin-top: 1rem;">
+                                        We will transfer the amount directly to the Bank Account of your choice.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-3" style="cursor: pointer; margin: 0 3rem;" onclick="pickUp()">
+                                <div class="column box-shadow" style="text-align: center;">
+                                    <!-- <img class="lib-img" src="../../public/webviews/aia_bplac_d2/assets/images/pickup.png" style="width: 100%;"> -->
+                                    <img class="lib-img" src="./assets/images/pickup.png" style="width: 100%;">
+                                    <div class="lib-row lib-desc" style="text-align: center; margin-top: 1rem;">
+                                        Claim your benefit at any BPI or BPI Family Savings Bank near you even if you
+                                        are
+                                        not a BPI account holder.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="jumbotron jumbotron-fluid hide" id="process_confirmation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-11 offset-md-1">
+                        <h3>YOUR REQUEST IS BEING PROCESSED</h3>
+                        <br />
+                        <div class="row">
+                            <div class="col-9">
+                                <p id="customer_Name" class="font-weight-normal">Hi Alex. Hang in there as we process
+                                    your request. Expect an SMS from us within 7 to 10 working days on the status of your
+                                    request.
+                                </p>
+                                <br />
+                                <p class="font-weight-normal">
+                                    If we need additional documents to support your request, we'll reach out to you
+                                    immediately.
+                                </p>
+                                <br />
+                                <p class="font-weight-normal">
+                                    Need assistance? Chat with Bessie at https://m.me/BessieofBPIAIA or email us at BPIAIA.customerservice@aia.com. You may also call our Customer Hotline at (02) 8528-5501.
+                                </p>
+                            </div>
+                            <div class="col-3 time_container">
+                                <div>
+                                    <div class="time_duration1 ">
+                                        <div class="white">Reference Number</div>
+                                        <div class="font-weight-bold white">
+                                            <span id="ref_number" class="white"></span>
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    <div id="turnaround-time-ref">
+                                        <div>Turnaround Time</div>
+                                        <div class="font-weight-bold">7 to 10 working days</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="hide" id="account_details" style="margin-top: 2rem;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-11 offset-md-1" id="stepper_intro">
+                        <div class="stepper__description">
+                            <h3 class="stepper__description__title">Bank Transfer</h3>
+                            <div class="stepper__description__info">
+                                <p class="lead font-weight-normal" id="have_bank_details">Enter your bank account
+                                    details below.</p>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="form_wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-11 offset-md-1">
+                            <form id="bank_form" autocomplete="off" onSubmit="return false;" novalidate>
+                                <div role="tabpanel" aria-labelledby="stepperFormTrigger1">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-row">
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validation">What is your account name?</label>
+                                                    <input type="text" class="input__box" maxlength="90"
+                                                        id="field_AccountName" value="" placeholder="Account Name"
+                                                        tabindex="17"
+                                                        onkeypress="return isNotNumber(event) && checkSpcialChar(event) && checkLength(event, 90)"
+                                                        required />
+                                                    <div id="err_field_AccountName" class="error"></div>
+                                                </div>
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validation">What is your account number?</label>
+                                                    <input type="text" class="input__box" maxlength="20"
+                                                        id="field_AccountNumber" value="" placeholder="Account Number"
+                                                        tabindex="18"
+                                                        onkeypress="return isNumber(event) && check_Mobile_Length(event, 20)"
+                                                        required />
+                                                    <div id="err_field_AccountNumber" class="error"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-row">
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validation">What is your bank?</label>
+                                                    <!-- <input type="text" class="input__box" id="field_Bank" value=""
+                                                        placeholder="Bank" tabindex="20"
+                                                        onkeypress="return isNotNumber(event) && checkSpcialChar(event)" required />
+                                                    <div id="err_field_Bank" class="error"></div> -->
+                                                    <select class="custom-select-container mr-sm-2 " id="field_Bank">
+
+                                                    </select>
+                                                    <div id="err_field_Bank" class="error"></div>
+                                                </div>
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validation">What is your bank’s branch?</label>
+                                                    <input type="text" class="input__box" maxlength="50"
+                                                        id="field_Branch" value="" placeholder="Branch" tabindex="21"
+                                                        onkeypress="checkLength(event, 50)" required />
+                                                    <div id="err_field_Branch" class="error"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-row">
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validation">What is your account’s currency?</label>
+                                                    <!-- <input type="text" class="input__box" id="field_Currency" value=""
+                                                        placeholder="Currency" tabindex="19"
+                                                        onkeypress="return isNotNumber(event) && checkSpcialChar(event)" required /> -->
+                                                    <select id="from_currency" class="custom-select-container mr-sm-2 "
+                                                        tabindex="19">
+                                                        <option value="Peso" selected>--</option>
+                                                        <option value="Peso" selected>Peso</option>
+                                                        <option value="USD">USD</option>
+                                                    </select>
+                                                    <div id="err_field_Currency" class="error"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6" id="proof_BAO_display">
+                                            <div class="form-row">
+                                                <div style="padding: 0; margin: 1.5rem 0;">
+                                                    <p class="upload_btn_title">Proof of Bank Account Ownership</p>
+                                                    <span class="btn btn-file" tabindex="22">
+                                                        Upload<input type="file" id="proof_BAO" />
+                                                        <span id="file_Upload_Tick_6"
+                                                            class="upload_btn_span">&#10004;</span>
+                                                        <span id="file_loader_icon_6" class="loader"></span>
+                                                        <span id="file_upload_cancle_6"
+                                                            class="upload_btn_span">&#10006;</span>
+                                                    </span>
+                                                    <small class="form-text text-muted">
+                                                        Please upload any of the following bank account documents:
+                                                        Passbook, Bank Account Statement, or Bank Certification. You may
+                                                        only upload documents that are in .jpg, .pdf formats and must
+                                                        not exceed 5MB in file size.
+                                                    </small>
+                                                    <small class="form-text text-muted">
+                                                        If you need to submit a document with multiple pages for a
+                                                        single requirement, please upload as a single/consolidated PDF
+                                                        file.
+                                                    </small>
+                                                    <p class="feedback_label" id="upload_feedback_label"></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="card" id="warning_parent_acct">
+                                                <div class="card-body" style="display: flex;padding: 0.5rem;">
+                                                    <div style="font-size: 1.8rem;">
+                                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                            class="bi bi-exclamation-triangle-fill" fill="currentColor"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd"
+                                                                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 5zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                                        </svg>
+                                                    </div>
+                                                    <div id="upload_warning_acct"
+                                                        style="padding: 0 0.9rem; color: red;">
+                                                        Warning: We detected a virus/malware
+                                                        in your uploaded documents. Please
+                                                        re-upload a clean, virus-free document
+                                                        to proceed.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <button type="submit" class="btn submit__btn"
+                                                style="width: 50%; margin: 3rem 0;">Submit</button> -->
+                                        </div>
+                                        <div class="col-12 col-md-12">
+                                            <div class="row">
+                                                <div class="col-12 col-md-6">
+                                                    <button id="change_bank_account" type="submit"
+                                                        onclick="addBank(event)" class="btn"
+                                                        style="margin: 3.5rem 0 0 0;">CHANGE BANK ACCOUNT</button>
+                                                </div>
+                                                <div class="col-12 col-md-6"
+                                                    style="display: flex; justify-content: flex-end;"
+                                                    id="account_details_btn">
+                                                    <a href="#" onclick="goBack1()" id="back_btn1"
+                                                        style="align-self: flex-end; color: #b8123e; padding: 0 1rem; margin: 55px 0.5rem;">Back</a>
+                                                    <div style="width: 50%;">
+                                                        <button type="submit" id="submit9" class="btn"
+                                                            style="width: 100%; margin: 3rem 0;">Submit
+                                                            <div class="loader1" id="spin_loader_2">
+                                                                <div class="loader-bg">
+                                                                    <div class="text"></div>
+                                                                </div>
+                                                                <div class="spiner-holder-one animate-0-25-a">
+                                                                    <div class="spiner-holder-two animate-0-25-b">
+                                                                        <div class="loader-spiner"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="spiner-holder-one animate-25-50-a">
+                                                                    <div class="spiner-holder-two animate-25-50-b">
+                                                                        <div class="loader-spiner"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="spiner-holder-one animate-50-75-a">
+                                                                    <div class="spiner-holder-two animate-50-75-b">
+                                                                        <div class="loader-spiner"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="spiner-holder-one animate-75-100-a">
+                                                                    <div class="spiner-holder-two animate-75-100-b">
+                                                                        <div class="loader-spiner"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        <!-- </button><button id='submit9_waiting_btn' type="button"
+                                                            class="btn btn-danger"
+                                                            style="width: 100%; margin: 3rem 0;padding: 0;display: none"><span
+                                                                class="loading"></span></button> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="hide" id="account_details1" style="margin-top: 2rem;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-11 offset-md-1" id="stepper_intro">
+                        <div class="stepper__description">
+                            <h3 class="stepper__description__title">Bank Transfer</h3>
+                            <div class="stepper__description__info">
+                                <p class="lead font-weight-normal">Enter your Bank Details Below.</p>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="form_wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-11 offset-md-1">
+                            <form id="addbank_form" onSubmit="return false;" novalidate>
+                                <div role="tabpanel" aria-labelledby="stepperFormTrigger1">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-row">
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validation">What is your account name?</label>
+                                                    <input type="text" class="input__box" maxlength="90"
+                                                        id="field_AccountName1" value="" placeholder="Account Name"
+                                                        tabindex="17"
+                                                        onkeypress="return isNotNumber(event) && checkSpcialChar(event) && checkLength(event,90)"
+                                                        required />
+                                                    <div id="err_field_AccountName1" class="error"></div>
+                                                </div>
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validation">What is your account number?</label>
+                                                    <input type="text" class="input__box" maxlength="20"
+                                                        id="field_AccountNumber1" value="" placeholder="Account Number"
+                                                        tabindex="18"
+                                                        onkeypress="return isNumber(event) && check_Mobile_Length(event,20)"
+                                                        required />
+                                                    <div id="err_field_AccountNumber1" class="error"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-row">
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validation">What is your bank?</label>
+                                                    <!-- <input type="text" class="input__box" id="field_Bank1" value=""
+                                                        placeholder="Bank" tabindex="20"
+                                                        onkeypress="return isNotNumber(event) && checkSpcialChar(event)" required />
+                                                    <div id="err_field_Bank1" class="error"></div> -->
+                                                    <select class="custom-select-container mr-sm-2 " id="field_Bank1">
+                                                        <option value="" selected>--</option>
+                                                        <option value="Bank of the Philippine Islands - BPI">Bank of the
+                                                            Philippine Islands - BPI</option>
+                                                        <option value="BPI Family Savings Bank - BFB">BPI Family Savings
+                                                            Bank - BFB</option>
+                                                        <option value="Banco de Oro - BDO">Banco de Oro - BDO</option>
+                                                        <option value="China Banking Corporation - CBC">China Banking
+                                                            Corporation - CBC</option>
+                                                        <option value="Citibank Philippines - CITI">Citibank Philippines
+                                                            - CITI</option>
+                                                        <option value="Development Bank of the Phils - DBP">Development
+                                                            Bank of the Phils - DBP</option>
+                                                        <option value="Eastwest Bank - EWB">Eastwest Bank - EWB</option>
+                                                        <option value="Hongkong Shanghai Banking Corp. Phils - HSBC">
+                                                            Hongkong Shanghai Banking Corp. Phils - HSBC</option>
+                                                        <option value="Land Bank of the Philippines - LPB">Land Bank of
+                                                            the Philippines - LPB</option>
+                                                        <option value="Metropolitan Banks and Trust Company - MBTC">
+                                                            Metropolitan Banks and Trust Company - MBTC</option>
+                                                        <option value="Philippine National Bank - PNB">Philippine
+                                                            National Bank - PNB</option>
+                                                        <option value="Rizal Commercial Banking Corp - RCBC">Rizal
+                                                            Commercial Banking Corp - RCBC</option>
+                                                        <option value="Security Bank - SBTC">Security Bank - SBTC
+                                                        </option>
+                                                        <option value="Union Bank of the Philippines - UB">Union Bank of
+                                                            the Philippines - UB</option>
+                                                    </select>
+                                                    <div id="err_field_Bank1" class="error"></div>
+                                                </div>
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validation">What is your bank’s branch?</label>
+                                                    <input type="text" class="input__box" maxlength="50"
+                                                        id="field_Branch1" value="" placeholder="Branch" tabindex="21"
+                                                        onkeypress="checkLength(event,50)" required />
+                                                    <div id="err_field_Branch1" class="error"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-row">
+                                                <div class="col-md-12 form__tags">
+                                                    <label for="validation">What is your account’s currency?</label>
+                                                    <!-- <input type="text" class="input__box" id="field_Currency" value=""
+                                                        placeholder="Currency" tabindex="19"
+                                                        onkeypress="return isNotNumber(event) && checkSpcialChar(event)" required /> -->
+                                                    <select id="from_currency1" class="custom-select-container mr-sm-2 "
+                                                        tabindex="19">
+                                                        <option value="Peso" selected>Peso</option>
+                                                        <option value="USD">USD</option>
+                                                    </select>
+                                                    <div id="err_field_Currency1" class="error"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-row">
+                                                <div style="padding: 0; margin: 1.5rem 0;">
+                                                    <p class="upload_btn_title">Proof of Bank Account Ownership</p>
+                                                    <span class="btn btn-file" tabindex="22">
+                                                        Upload<input type="file" id="proof_addBAO" />
+                                                        <span id="file_Upload_Tick_7"
+                                                            class="upload_btn_span">&#10004;</span>
+                                                        <span id="file_loader_icon_7" class="loader"></span>
+                                                        <span id="file_upload_cancle_7"
+                                                            class="upload_btn_span">&#10006;</span>
+                                                    </span>
+                                                    <small class="form-text text-muted">
+                                                        Please upload any of the following bank account documents:
+                                                        Passbook, Bank Account Statement, or Bank Certification. You may
+                                                        only upload documents that are in .jpg, .pdf formats and must
+                                                        not exceed 5MB in file size.
+                                                    </small>
+                                                    <small class="form-text text-muted">
+                                                        If you need to submit a document with multiple pages for a
+                                                        single requirement, please upload as a single/consolidated PDF
+                                                        file.
+                                                    </small>
+                                                    <p class="feedback_label" id="upload_feedback_label1"></p>
+                                                </div>
+                                            </div>
+                                            <div class="card" id="warning_parent_acct1">
+                                                <div class="card-body" style="display: flex;padding: 0.5rem;">
+                                                    <div style="font-size: 1.8rem;">
+                                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                            class="bi bi-exclamation-triangle-fill" fill="currentColor"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd"
+                                                                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 5zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                                        </svg>
+                                                    </div>
+                                                    <div id="upload_warning_acct1"
+                                                        style="padding: 0 0.9rem; color: red;">
+                                                        Warning: We detected a virus/malware
+                                                        in your uploaded documents. Please
+                                                        re-upload a clean, virus-free document
+                                                        to proceed.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn submit__btn"
+                                                style="width: 50%; margin: 3rem 0;" id='account_details1_btn'>Submit
+
+                                                <div class="loader1" id="spin_loader_2">
+                                                    <div class="loader-bg">
+                                                        <div class="text"></div>
+                                                    </div>
+                                                    <div class="spiner-holder-one animate-0-25-a">
+                                                        <div class="spiner-holder-two animate-0-25-b">
+                                                            <div class="loader-spiner"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="spiner-holder-one animate-25-50-a">
+                                                        <div class="spiner-holder-two animate-25-50-b">
+                                                            <div class="loader-spiner"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="spiner-holder-one animate-50-75-a">
+                                                        <div class="spiner-holder-two animate-50-75-b">
+                                                            <div class="loader-spiner"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="spiner-holder-one animate-75-100-a">
+                                                        <div class="spiner-holder-two animate-75-100-b">
+                                                            <div class="loader-spiner"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </button>
+                                            <!-- <div style="text-align: -webkit-right;">
+                                                <button id='account_details1_btn_waiting' type="button"
+                                                    class="btn btn-danger"
+                                                    style="width: 50%; margin: 3rem 0;padding: 0;display: none"><span
+                                                        class="loading"></span></button>
+                                            </div> -->
+                                        </div>
+                                        <!-- <div class="col-12 col-md-12">
+                                            <div class="row">
+                                                <div class="col-12 col-md-6">
+                                                    <button type="submit" class="btn" style="margin: 3.5rem 0 0 0;">CHANGE BANK ACCOUNT</button>
+                                                </div>
+                                                <div class="col-12 col-md-6" style="display: flex; justify-content: flex-end;"> 
+                                                    <div style="width: 50%;">
+                                                        <button type="submit" class="btn" style="width: 100%; margin: 3rem 0;">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hide" id="pickUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-11 offset-md-1" style="margin-top: 2rem;">
+                        <p class="privacy_title">Pick up Anywhere</p>
+                        <p style="margin: 2rem 0 2rem 0;">
+                            If your request is approved, you can claim your benefit from any BPI or BPI Family Savings
+                            Bank branch.
+                        </p>
+                        <p style="margin: 2rem 0;">
+                            You will receive an SMS notification confirming the date of when you can claim your benefit
+                            and a Reference Code. Please present this Reference Code and one (1) valid government issued
+                            ID to claim your benefit
+                        </p>
+                        <div class="col-12 col-md-12" style="margin: 0 0 0 1rem 0;">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="popup">
+                                        <button type="submit" onclick="openlink()" class="btn pickUp_btn"
+                                            style="width: 100%; margin: 0 0 1rem 0;">CHECK OUT THE BPI BRANCH NEAREST
+                                            YOU</button>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6" style="display: flex; justify-content: flex-end;">
+                                    <a href="#" onclick="goBackPickup()" id="goback_pickup"
+                                        style="align-self: flex-end; color: #b8123e; padding: 0 1rem; margin: 0 0.5rem 0.7rem 0.5rem;">Back</a>
+                                    <div class="popup" style="width: 90%;">
+                                        <button id="pick_up_btn" type="submit" onclick="pickup_Bpi()" class="btn"
+                                            style="width: 100%;"><span id='msg' style="color:white">YES, I WOULD LIKE TO PICK UP MY BENEFIT THROUGH
+                                            BPI</span>
+                                            <div class="loader1" id="spin_loader_1" style="float: none;margin: 0 auto;">
+                                                <div class="loader-bg">
+                                                    <div class="text"></div>
+                                                </div>
+                                                <div class="spiner-holder-one animate-0-25-a">
+                                                    <div class="spiner-holder-two animate-0-25-b">
+                                                        <div class="loader-spiner"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="spiner-holder-one animate-25-50-a">
+                                                    <div class="spiner-holder-two animate-25-50-b">
+                                                        <div class="loader-spiner"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="spiner-holder-one animate-50-75-a">
+                                                    <div class="spiner-holder-two animate-50-75-b">
+                                                        <div class="loader-spiner"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="spiner-holder-one animate-75-100-a">
+                                                    <div class="spiner-holder-two animate-75-100-b">
+                                                        <div class="loader-spiner"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <!-- </button><button id='pick_up_btn_waiting' type="button" class="btn btn-danger"
+                                            style="width: 100%;padding-left: 50px;padding-right: 50px;display: none"><span
+                                                class="loading"></span></button> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="hide modal fade" id="popUp" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p id="p1">Please check if all fields are filled out and review any missed or incorrect
+                            information before clicking NEXT
+                        </p>
+                    </div>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="width: 50%; margin: 0 auto 3rem auto;">Ok</button>
+                </div>
+        </section>
+
+        <!-- fallbackMessage-->
+        <section class="hide modal fade" id="fallbackMessagePopUp" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <!-- <p>Error</p> -->
+                        <button type="button" class="close" aria-label="Close" style="text-align: right;padding:12px"><span
+                                aria-hidden="true">&times;</span></button><br>
+                        <p style="text-align: center;padding-bottom: 9px;" id="fallbackMessage">
+                        </p>
+                    </div>
+                    <!-- <button type="button" class="btn btn-danger" style="width: 50%; margin: 0 auto 3rem auto;"
+                                onclick="refreshPage()">Ok</button> -->
+                </div>
+        </section>
+        <!--  fallbackMessage-->
+        <!-- invalid return code-->
+        <section class="hide modal fade" id="invalidReturnCode" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p style="text-align: center;" id="returnMessage">
+                        </p>
+                    </div>
+                    <button type="button" class="btn btn-danger" style="width: 50%; margin: 0 auto 3rem auto;"
+                        onclick="backToFileClaim()">Ok</button>
+                </div>
+        </section>
+        <!--  invalid return code-->
+        <section class="hide modal fade" id="popUp_DOB" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p id="p1">We’re sorry, the date of birth keyed in is invalid and does not match the date of
+                            incident / loss reported. Please double check all information before proceeding.
+                        </p>
+                    </div>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="width: 50%; margin: 0 auto 3rem auto;">Ok</button>
+                </div>
+        </section>
+
+        <!-- otp pop up modal (drop-2 ) -->
+        <section class="hide modal fade" id="otpPopUp" tabindex="-1" role="dialog" aria-labelledby="otpPopUp"
+            aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" aria-label="Close"
+                            style="text-align: right;padding:12px"><span aria-hidden="true"
+                                onclick="closeModal()">&times;</span></button><br>
+                       <!--- <p id="otp-text">We have sent a One-Time PIN to your
+                            <br> mobile number <span id="user_mobile"></span>.
+                            <br> Kindly enter the OTP in the space below.
+                        </p>
+                        <p id="otp-text">Your OTP expires after two minutes.
+                            <br> Click
+                            <a style="color:#1b89f0 ;cursor: pointer;" onclick="resendOtp('resend')">here</a> to resend
+                            a new one.
+                        </p>
+                        <p id="otp-text">If your current mobile number does not
+                            <br> match our records, kindly update your
+                            <br> contact details via
+                            <a style="color:#1b89f0 ;cursor: pointer;">ePlan</a> or by calling
+                            <br> our hotline at (02)8528-5501.
+                        </p>  -->
+
+                        <p id="otp-text">We sent a One-Time PIN to your registered
+                            <br> mobile number <span id="user_mobile"></span>.
+                            <br> Kindly enter the OTP in the space below.
+                        </p>
+                        <p id="otp-text">Your OTP expires after two minutes. Click <a style="color:#1b89f0 ;cursor: pointer;" onclick="resendOtp('resend')">here</a> to resend a new one.
+                        </p>
+                        <p id="otp-text">If your current mobile number does not match our records, kindly update your contact details via <a href="https://bit.ly/BPLACUpdateInfo" style="color:#1b89f0 ;cursor: pointer;">ePlan</a> or by calling our hotline at (02) 8528-5501. 
+                        </p>
+                        <br>
+                        <input type="text" class="input__box" maxlength="25" id="otp" value="" placeholder="OTP"
+                            tabindex="1" />
+
+                        <div align="right">Time left : <span id="otpTimer"></span></div>
+                    </div>
+                    <button id='otp-btn' type="button" class="btn btn-danger" onclick="submitOtp(event)"
+                        style="width: 50%; margin: 0 auto 3rem auto;">Submit</button>
+                    <button id='loader-btn' type="button" class="btn btn-danger"
+                        style="width: 50%; margin: 0 auto 3rem auto;padding: 0;display: none"><span
+                            class="loading"></span></button>
+                </div>
+
+            </div>
+        </section>
+        <!-- otp pop up modal (drop-2 ) -->
+
+        <!-- Empty mobile number  modal (drop-2 ) -->
+        <section class="hide modal fade" id="emptyMobileNumPopUp" tabindex="-1" role="dialog"
+            aria-labelledby="emptyMobileNumPopUp" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p id="modal-text">We currently do not have your mobile number on record. Kindly provide us your
+                            mobile number in the space below provided so we can proceed with your claim request.
+                        </p>
+
+                        <br>
+                        <input type="text" class="input__box" maxlength="25" id="newMobileNum" value=""
+                            placeholder="Mobile Number" tabindex="1" />
+
+                    </div>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="width: 50%; margin: 0 auto 3rem auto;">Submit</button>
+                </div>
+
+            </div>
+        </section>
+        <!-- Empty mobile number  modal (drop-2 ) -->
+
+        <!-- Invalid Otp modal (drop-2 ) -->
+        <section class="hide modal fade" id="invalidOtp" tabindex="-1" role="dialog" aria-labelledby="invalidOtp"
+            aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p id="modal-text" style="text-align:center;">Sorry, you have entered an invalid
+                            <br> OneTime PIN. Click
+                            <a style="color:#1b89f0 ;cursor: pointer;" onclick="resendOtp('invalidInput')">here</a> so
+                            we can resend another one.
+                        </p>
+
+                        <br>
+
+
+                    </div>
+                    <button id="otp-invalid-btn" type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="width: 50%; margin: 0 auto 3rem auto;" onclick="backToFileClaim()">Exit</button>
+                    <button id='loader-btn-invalid' type="button" class="btn btn-danger"
+                        style="width: 50%; margin: 0 auto 3rem auto;padding: 0;display: none"><span
+                            class="loading"></span></button>
+                </div>
+
+            </div>
+        </section>
+        <!-- Invalid Otp modal (drop-2 ) -->
+
+        <!--Otp expiry modal (drop-2 ) -->
+        <section class="hide modal fade" id="otpExpiry" tabindex="-1" role="dialog" aria-labelledby="otpExpiry"
+            aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p id="modal-text">Sorry, your OneTime PIN has expired.Click
+                            <a style="color:#1b89f0;cursor: pointer;" onclick="resendOtp('otpExpire')">here</a> so we
+                            can resend another one.
+                        </p>
+
+                    </div>
+                    <br>
+                    <button id="otp-expiry-btn" type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="width: 50%; margin: 0 auto 3rem auto;" onclick="backToFileClaim()">Exit</button>
+                    <button id='loader-btn-expiry' type="button" class="btn btn-danger"
+                        style="width: 50%; margin: 0 auto 3rem auto;padding: 0;display: none"><span
+                            class="loading"></span></button>
+                </div>
+
+            </div>
+        </section>
+        <!-- Otp expiry modal (drop-2 ) -->
+
+        <!--Resend otp max number exceed (drop-2 ) -->
+        <section class="hide modal fade" id="maxResendOtp" tabindex="-1" role="dialog" aria-labelledby="maxResendOtp"
+            aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p id="modal-text">Sorry, you have reached the maximum number of
+                            <br> allowable OneTime PIN resends. Please try again <br> in
+                            2 hours.
+                        </p>
+
+                    </div>
+                    <br>
+                    <button type="button" class="btn btn-danger" 
+                        style="width: 50%; margin: 0 auto 3rem auto;" onclick="backToFileClaim()">Exit</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Max Invalid Otp  modal (drop-2 ) -->
+        <section class="hide modal fade" id="maxInvalidOtp" tabindex="-1" role="dialog" aria-labelledby="maxInvalidOtp"
+            aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p id="modal-text" style="text-align:center;">Sorry, you have entered an invalid One-Time PIN.
+                            After 3 attempts, we will no longer be able to generate a new PIN for
+                            you.
+                        </p>
+                        <br>
+                        <p> Need assistance? Please contact our customer hotline (02) 8528-5501 or PLDT Toll-Free Number
+                            1-800-188-89100 from M-F,
+                            8am to 5pm. You may also speak with your BSE at any BPI or BPI Family Savings Bank branch.
+                        </p> </br>
+                    </div>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="width: 50%; margin: 0 auto 3rem auto;" onclick="backToFileClaim()">Exit</button>
+                </div>
+
+            </div>
+        </section>
+        <!-- Max Invalid Otp modal (drop-2 ) -->
+        <div id="cover-spin"></div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"></script> -->
+    <!-- <script src="../../public/webviews/aia_bplac_d2/assets/js/accidental.js"></script> -->
+    <script src="./assets/js/accidental.js"></script>
+    <script>
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+</body>
+
+</html>

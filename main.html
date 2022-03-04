@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow-x: hidden;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../public/webviews/aia_bplac_d2/assets/css/styles.css">
+    <title>Yellow Messenger</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- <style>
+        .btnn:hover {
+            color: white;
+            /* color: #b8123e !important; */
+            background-color: #b8123e !important;
+            text-decoration: unset !important;
+            border: 1px solid white !important;
+        }
+
+        .btnn:active {
+            color: white;
+            /* color: #b8123e !important; */
+            background-color: #b8123e !important;
+            text-decoration: unset !important;
+            border: 1px solid white !important;
+        }
+    </style> -->
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <section class="jumbotron jumbotron-fluid" style="padding: 1rem 0 0 0;" id="img_claim">
+        <div class="container">
+            <div class="row justifyCenter">
+                <img src="../../public/webviews/aia_bplac_d2/assets/images/claims.png" alt="claims">
+            </div>
+        </div>
+    </section>
+    <section class="jumbotron jumbotron-fluid bg_light_pink show" id="claim" style="padding: 1rem 0 5rem 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div>
+                        <div class="row justifyCenter">
+                            <div class="col-12 text-center">
+                                <p class="md-2" style="font-weight: bold;font-size: 1.30rem;">We’re here to guide you
+                                    every step of the way. Please tell us what happened.
+                                </p>
+                            </div>
+                            <div class="col-12 col-md-3 text-center cursor justifyCenter"
+                                style="display: flex;padding: 0;margin: 1rem 0 0 0.5rem;" onclick="getAccidentPage()">
+                                <div class="flip-card" style="background: white;">
+                                    <div class="flip-card-inner justifyCenter vertical-center">
+                                        <div class="front">
+                                            <div class="card-body">
+                                                <h3>ACCIDENT</h3>
+                                                <p>I got into an accident.</p>
+                                            </div>
+                                        </div>
+                                        <div class="back">
+                                            <div>
+                                                <p class="p-2">We have your back. We're here to help you focus on your
+                                                    recovery.</p>
+                                                <div
+                                                    style="background: #b8123e;color: white; margin: 1rem; padding: 0.5rem;">
+                                                    FILE A CLAIM NOW</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-3 text-center cursor justifyCenter"
+                                style="display: flex;padding: 0;margin: 1rem 0 0 0.5rem;" onclick="getIllnessPage()">
+                                <div class="flip-card" style="background: white;">
+                                    <div class="flip-card-inner justifyCenter vertical-center">
+                                        <div class="front">
+                                            <div class="card-body">
+                                                <h3>ILLNESS</h3>
+                                                <p>I’m sick and I need assistance.</p>
+                                            </div>
+                                        </div>
+                                        <div class="back">
+                                            <div>
+                                                <p class="p-2">We'll help you take care of your medical expenses so you
+                                                    won't need to worry about it later.</p>
+                                                <div
+                                                    style="background: #b8123e;color: white; margin: 1rem; padding: 0.5rem;">
+                                                    FILE A CLAIM NOW</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-3 text-center cursor justifyCenter"
+                                style="display: flex;padding: 0;margin: 1rem 0 0 0.5rem;" onclick="getDeathPage()">
+                                <div class="flip-card" style="background: white;">
+                                    <div class="flip-card-inner justifyCenter vertical-center">
+                                        <div class="front">
+                                            <div class="card-body">
+                                                <h3>DEATH</h3>
+                                                <p>Someone I know has died and I am the beneficiary.</p>
+                                            </div>
+                                        </div>
+                                        <div class="back">
+                                            <div>
+                                                <p class="p-2">Nothing can be more difficult than losing someone close
+                                                    to you. We're here to lend a hand.</p>
+                                                <div
+                                                    style="background: #b8123e;color: white; margin: 1rem; padding: 0.5rem;">
+                                                    FILE A CLAIM NOW</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-12 col-md-3 text-center cursor" onclick="getIllnessPage()">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front vertical-center">
+                                            <div class="card-body">
+                                                <h3>ILLNESS</h3>
+                                                <p>I’m sick and I need assistance.</p>
+                                            </div>
+                                        </div>
+                                        <div class="flip-card-back vertical-center">
+                                            <div>
+                                                <p>Don't worry about your medical expenses because we're here for you.</p>
+                                                <div style="background: #b8123e;color: white; margin: 1rem; padding: 0.5rem;">FILE A CLAIM NOW</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-3 text-center cursor" onclick="getDeathPage()">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front vertical-center">
+                                            <div class="card-body">
+                                                <h3>DEATH</h3>
+                                                <p>Someone I know has died and I am the beneficiary.</p>
+                                            </div>
+                                        </div>
+                                        <div class="flip-card-back vertical-center">
+                                            <div>
+                                                <p>Nothing can be harder than losing someone close to us, that's why we're
+                                                    here to help you in this trying time.</p>
+                                                <div style="background: #b8123e;color: white; margin: 1rem; padding: 0.5rem;">FILE A CLAIM NOW</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="jumbotron jumbotron-fluid bg_light_blue show" id="reference_No"
+        style="padding: 1rem 0 5rem 0; background-color: #d4edf1;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div>
+                        <div class="row  justifyCenter ">
+                            <div class="col-12 text-center  justifyCenter">
+                                <h1 class="md-2" style="font-weight: bold;font-size: 2rem;">CHECK YOUR CLAIMS STATUS
+                                </h1>
+                                <p class="md-2" style="font-size: 1.30rem;">Type your reference number below. </p>
+                            </div>
+                            <div class="input-group mb-3  justifyCenter"
+                                style="padding-top: 31px; padding-left: 6px;padding-right: 6px;">
+                                <input type="text" class="form-control" id="reference_number" maxlength="10"
+                                    placeholder="Reference Number" aria-label="Recipient's username"
+                                    aria-describedby="basic-addon2" style=" max-width: 602px; height: 62px;" onkeypress="return isNumber(event) && checkSpcialChar(event) && checkLength(event, 10)">
+                                <div class="input-group-append">
+                                    <button onclick="captcha()" class="input-group-text" id="go-btn"
+                                        style="width: 82px; background-color: #b8123e !important; cursor: pointer;justify-content: center;">
+                                        <div>
+                                            <p style=" color:#fff;font-size: 26px;">GO</p>
+                                        </div>
+                                    </button>
+                                    <button id='loader-btn' type="button" class="btn btn-danger"
+                                        style="display: none;width: 82px; background-color: #b8123e !important; cursor: pointer;justify-content: center;"><span
+                                            class="loading"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div style="padding-bottom: 27px;">
+                            <a href="https://wwwuat.bpi-philam.com/en/help-support/faq.html" class="reference-track"
+                                style="color: #b8123e; text-decoration: revert;">Where can I find my reference
+                                number?</a>
+                        </div> -->
+                        <div style="justify-content: end;text-align: -webkit-center;padding-bottom: 7px;">
+                            <div style="max-width: 679px;text-align: left;" id="err_field_ref_num" class="error"></div>
+                        </div>
+                        <div style="padding-bottom: 27px;justify-content: end;text-align: -webkit-center;">
+                            <p style="max-width: 679px;text-align: left;">Your reference number is the 10-digit number
+                                we sent you via SMS when
+                                you submitted your
+                                claim request through our
+                                website. Lost your reference number? Kindly send us an e-mail at
+                                BPI-Philam_CustomerService@aia.com
+                                to retrieve it.</p>
+
+                        </div>
+                        <div>
+                            <div class="g-recaptcha" data-sitekey="6LeFPOsZAAAAADGU9ehAxipxQBBlv1XvZRGd29gx"></div>
+                            <span class="error reference-track" id="err_recaptcha"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </section>
+    <main class="jumbotron jumbotron-fluid">
+
+        <section class="jumbotron jumbotron-fluid hide" id="process_confirmation1">
+            <section>
+                <div class="container" style="padding-top: 2%;">
+                    <div class="row" style=" padding-bottom: 4%;">
+                        <div class="col-12 col-md-10 container">
+                            <div style="display: flex;
+                                    height: 100%;">
+                                <div class="col-2" style="margin-right:1rem;">
+                                    <img class="icon1" id="claim-header-img" alt="img" />
+                                </div>
+                                <div style="margin: 0 1rem; display: grid; max-height: 1%;">
+                                    <h1 id="claim-header-text" class="display-4 main__header" style="display: inline-block;
+                                            align-self: flex-start;"></h1>
+                                    <p class="lead" style="display: inline-block;
+                                            align-self: flex-end;" id="claim-header-desc">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </section>
+
+            <section id="stepper-progress reference-stepper">
+                <section>
+                    <div class="row" style="text-align: center; padding-top: 3rem;">
+                        <div class="col-md-11 offset-md-1 p-0">
+                            <h2 id="displayDt"><strong></strong></h2>
+                        </div>
+                    </div>
+                </section>
+                <div class="container pl-pr-0">
+                    <div class="row m-0">
+                        <div class="col-md-11 offset-md-1 p-0">
+                            <div class="md-stepper-horizontal ">
+                                <div id="step1" class="md-step">
+                                    <div class="md-step-circle" id="step-circle-1"><span
+                                            style="color: transparent;">1</span>
+                                    </div>
+                                    <div class="md-step-title" id="step-circle-title-1">Requirements have <br> been
+                                        Submitted</div>
+                                    <div class="md-step-bar-left"></div>
+                                    <div class="md-step-bar-right" style="margin-left:9px" id="step-bar-1"></div>
+                                </div>
+                                <div id="step2" class="md-step">
+                                    <div class="md-step-circle" id="step-circle-2"><span
+                                            style="color: transparent;">2</span>
+                                    </div>
+                                    <div class="md-step-title" id="step-circle-title-2">Documents are <br> being
+                                        Reviewed
+                                    </div>
+                                    <div class="md-step-bar-left" style="margin-right:9px" id="step-bar-2"></div>
+                                    <div class="md-step-bar-right" style="margin-left:9px" id="step-bar-3"></div>
+                                </div>
+                                <div id="step3" class="md-step ">
+                                    <div class="md-step-circle" id="step-circle-3"><span id="step3_span"
+                                            style="color: transparent;">3</span>
+                                    </div>
+                                    <div class="md-step-title" id="step-circle-title-3">Request is being
+                                        <br> Settled
+                                    </div>
+                                    <div class="md-step-bar-left" style="margin-right:14px" id="step-bar-4"></div>
+                                    <div class="md-step-bar-right"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container" style="padding-bottom: 0.5rem ;margin-top: 3rem;">
+                <div class="row">
+                    <div class="col-md-11 offset-md-1">
+
+
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div id='claim-msg-text'></div>
+                                <!-- <h3>YOUR REQUEST IS BEING PROCESSED</h3>
+                                    <br />
+                                    <p id="customer_Name" class="font-weight-justy request-font">Hi Alex. Hang in there as
+                                        we
+                                        are now processing your
+                                        request. Kindly
+                                        expect an update from us within 7 to 10 working days on the status of
+                                        your request.
+                                    </p>
+                                    <br />
+                                    <p class="font-weight-normal request-font">
+                                        If we need additional documents to support your request, we'll reach out to you
+                                        immediately.
+                                    </p>
+                                    <br />
+                                    <p class="font-weight-normal request-font">
+                                        If you have any questions regarding your claim request, please send us an email at
+                                        <a target="_blank"
+                                            href="mailto:BPIPhilam_CustomerService@aia.com">BPIPhilam_CustomerService@aia.com</a>.
+                                        For those in Makati, you may also visit our Vibe Customer Service Center at
+                                        BPI-Philam
+                                        Makati along Ayala Ave. You may also call our Customer Hotline at (02) 8528-5501.
+                                    </p> -->
+
+                            </div>
+                            <div class="col-md-4 time_container">
+                                <div class="time-duration-queary">
+                                    <!--  <div class="time_duration reference">
+                                                <div class="white">Reference Number</div>
+                                                <div class="font-weight-bold white">89766035</div>
+                                            </div>
+                                            <br /> -->
+
+
+                                    <div class="time_duration1">
+                                        <div class="" style="color: #fff;">Reference Number</div>
+                                        <div class="font-weight-bold" style="color: #fff;" id='original_ref_no'></div>
+                                    </div>
+                                    </br>
+                                    <div id="payment-ref" style="display: hidden;">
+                                        <div class="" id="payment_text" style="color: black;">Payment</div>
+                                        <div class="font-weight-bold" style="color: black;" id="payment_amount">Php
+                                            123,456.80</div>
+                                    </div>
+                                    <div id="turnaround-time-ref" style="display: hidden;">
+                                        <div style="color: black;">Turnaround Time</div>
+                                        <div class="font-weight-bold" style="color: black;">7 to 10 working days</div>
+                                    </div>
+                                    <div>
+                                        <div class="dropdown" style="padding-top: 11px;">
+                                            <button onclick="trackUser()" class="font-weight-bold  dropbtn">Track your
+                                                Progress <i class="fa fa-angle-up arrow-up  "
+                                                    style="display: none;"></i><i
+                                                    class="fa fa-angle-down arrow-down "></i></button>
+
+                                            <div class="dropdown-content" id="dropdown_content">
+                                                <div id="progs-status"></div>
+                                                <!-- <div class="step">
+                                                        <div>
+                                                            <div class="circle" id="circle-number1">1</div>
+                                                            <div class="circle hide" id="circle1"><i
+                                                                    class="fa fa-check"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+    
+                                                            <div class="title">You have completely filld out the form for
+                                                                Accident Claims.</div>
+    
+                                                        </div>
+                                                    </div>
+                                                    <div class="step step-active">
+                                                        <div>
+                                                            <div class="circle" id="circle-number2">2</div>
+                                                            <div class="circle hide" id="circle2"><i
+                                                                    class="fa fa-check"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="title">You have submitted all the required
+                                                                documents.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="step">
+                                                        <div>
+                                                            <div class="circle hide" id="circle3"><i
+                                                                    class="fa fa-check"></i>
+                                                            </div>
+                                                            <div class="circle" id="circle-number3">3</div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="title">You have chosen Bank Transfer as a preferred
+                                                                payout method</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="step">
+                                                        <div>
+                                                            <div class="circle hide" id="circle4"><i
+                                                                    class="fa fa-check"></i>
+                                                            </div>
+                                                            <div class="circle" id="circle-number4">4</div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="title">We have recived and reviewed your application
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="step">
+                                                        <div>
+                                                            <div class="circle hide" id="circle5"><i
+                                                                    class="fa fa-check"></i>
+                                                            </div>
+                                                            <div class="circle" id="circle-number5">5</div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="title">We are requesting additional claims documents
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="step">
+                                                        <div>
+                                                            <div class="circle hide" id="circle6"><i
+                                                                    class="fa fa-check"></i>
+                                                            </div>
+                                                            <div class="circle" id="circle-number6">6</div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="title">You have submitted all additional documents.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="step">
+                                                        <div>
+                                                            <div class="circle hide" id="circle7"><i
+                                                                    class="fa fa-check"></i>
+                                                            </div>
+                                                            <div class="circle" id="circle-number7">7</div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="title">We have denied your claim request
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="step">
+                                                        <div>
+                                                            <div class="circle hide" id="circle8"><i
+                                                                    class="fa fa-check"></i>
+                                                            </div>
+                                                            <div class="circle" id="circle-number8">8</div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="title">Your payout is ready for pick up at any BPI
+                                                                branch
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <section class="jumbotron jumbotron-fluid bg_light_blue show" id="customer_survey"
+                style="padding: 1rem 0 5rem 0; background-color: #d4edf1;">
+                <form onSubmit="return false;" id="customer_survey">
+                    <div class="container" id="feedback-form">
+                        <div class="row">
+                            <div class="container" style="background-color: #d4edf1; margin-top: 40px;">
+                                <section>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-11 offset-md-1" id="stepper_intro">
+                                                <div class="stepper__description">
+
+                                                    <h3 class="stepper__description__title">HOW WAS YOUR EXPERIENCE?
+                                                    </h3>
+                                                    <div class="stepper__description__info">
+                                                        <p class="lead font-weight-normal" style="display: inline-block;
+                                                            align-self: flex-end;">
+                                                            We'd be happy to hear your feedback. This helps us give you
+                                                            quality products and better service.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!-- <section>
+                                <div class="container  ">
+                                    <div class="row">
+                                        <div class="col-lg-12 offset-md-1" id="stepper_intro">
+                                            <div class="stepper__description__info">
+                                                <p class="lead font-weight-normal">How would you rate your overall
+                                                    satisfaction with the service you received?
+                                                </p>
+                                            </div>
+                                            <div class="row feedback">
+                                                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex">
+                                                    <div class="box">
+                                                        <div> <button type="button" class="btnn info">1</button></div>
+                                                        <div>
+                                                            <h6><strong>Very Unsatisfied</strong></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex">
+                                                    <div class="box">
+                                                        <div> <button type="button" class="btnn info">2</button></div>
+                                                        <div>
+                                                            <h6><strong>Unsatisfied</strong></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex">
+                                                    <div class="box">
+                                                        <div> <button type="button" class="btnn info">3</button></div>
+                                                        <div>
+                                                            <h6><strong>Netural</strong></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex">
+                                                    <div class="box">
+                                                        <div> <button type="button" class="btnn info">4</button></div>
+                                                        <div>
+                                                            <h6><strong>Satisfied</strong></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex abc">
+                                                    <div class="box">
+                                                        <div> <button type="button" class="btnn info">5</button></div>
+                                                        <div>
+                                                            <h6><strong>Very Satisfied</strong></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section>
+                                <div class="container ">
+                                    <div class="row">
+                                        <div class="col-md-11 offset-md-1" id="stepper_intro">
+                                            <div class="stepper__description__info">
+                                                <p class="lead font-weight-normal">How true is this statement:
+                                                    "BPI-Philam made it easy for me to handle my concern today."
+                                                </p>
+                                            </div>
+                                            <div class="row feedback">
+                                                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex">
+                                                    <div class="box">
+                                                        <div> <button type="button" class="btnn info">1</button></div>
+                                                        <div>
+                                                            <h6><strong>Strongly Disagree</strong></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex">
+                                                    <div class="box">
+                                                        <div> <button type="button" class="btnn info">2</button></div>
+                                                        <div>
+                                                            <h6><Strong>Disagree</Strong></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex">
+                                                    <div class="box">
+                                                        <div> <button type="button" class="btnn info">3</button></div>
+                                                        <div>
+                                                            <h6><strong>Netural</strong></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex">
+                                                    <div class="box">
+                                                        <div> <button type="button" class="btnn info">4</button></div>
+                                                        <div>
+                                                            <h6><strong>Agree</strong></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex abc">
+                                                    <div class="box">
+                                                        <div> <button type="button" class="btnn info">5</button></div>
+                                                        <div>
+                                                            <h6><strong>Strongly Agree</strong></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-11 offset-md-1" id="stepper_intro">
+                                            <div class="stepper__description__info">
+                                                <p class="lead font-weight-normal">How likely are you to recommend
+                                                    BPI-Philam to your family or friends?
+                                                </p>
+                                            </div>
+                                            <div class="row feedback justify-content: around-space">
+                                                <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                    <div class="box1">
+                                                        <div> <button type="button" class="btnn info">1</button></div>
+                                                        <div>
+                                                            <h6><strong>Highly Unlikely</strong></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                    <div class="box1">
+                                                        <button type="button" class="btnn info">2</button>
+                                                        <h6></h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                    <div class="box1">
+                                                        <button type="button" class="btnn info">3</button>
+                                                        <h6></h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                    <div class="box1">
+                                                        <button type="button" class="btnn info">4</button>
+                                                        <h6></h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                    <div class="box1">
+                                                        <button type="button" class="btnn info">5</button>
+                                                        <h6></h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                    <div class="box1">
+                                                        <button type="button" class="btnn info">6</button>
+                                                        <h6></h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                    <div class="box1">
+                                                        <button type="button" class="btnn info">7</button>
+                                                        <h6></h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                    <div class="box1">
+                                                        <button type="button" class="btnn info">8</button>
+                                                        <h6></h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                    <div class="box1">
+                                                        <button type="button" class="btnn info">9</button>
+                                                        <h6></h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                    <div class="box">
+                                                        <div> <button type="button" class="btnn info">10</button></div>
+                                                        <div>
+                                                            <h6><strong>Highly likely</strong></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12  footer " id="stepper_intro">
+                                            <button type="submit" class="btnn submit__btn1"
+                                                style="color:#fff; background-color: #b8123e !important;">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section> -->
+
+
+
+                                <section>
+                                    <div class="container  ">
+                                        <div class="row">
+                                            <div class="col-lg-12 offset-md-1" id="stepper_intro">
+                                                <div class="stepper__description__info">
+                                                    <p class="lead font-weight-normal">How would you rate your overall
+                                                        satisfaction with the service you received?
+                                                    </p>
+                                                </div>
+                                                <div class="row feedback">
+                                                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex">
+                                                        <div class="box">
+                                                            <div> <button type="button" class="survey_btn info" id="a11"
+                                                                    onclick="selectAnswer(1,this.id,1)">1</button>
+                                                            </div>
+                                                            <div>
+                                                                <h6><strong>Very Unsatisfied</strong></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex">
+                                                        <div class="box">
+                                                            <div> <button type="button" class="survey_btn info" id="a12"
+                                                                    onclick="selectAnswer(1,this.id,2)">2</button>
+                                                            </div>
+                                                            <div>
+                                                                <h6><strong>Unsatisfied</strong></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex">
+                                                        <div class="box">
+                                                            <div> <button type="button" class="survey_btn info" id="a13"
+                                                                    onclick="selectAnswer(1,this.id,3)">3</button>
+                                                            </div>
+                                                            <div>
+                                                                <h6><strong>Netural</strong></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex">
+                                                        <div class="box">
+                                                            <div> <button type="button" class="survey_btn info" id="a14"
+                                                                    onclick="selectAnswer(1,this.id,4)">4</button>
+                                                            </div>
+                                                            <div>
+                                                                <h6><strong>Satisfied</strong></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex abc">
+                                                        <div class="box">
+                                                            <div> <button type="button" class="survey_btn info" id="a15"
+                                                                    onclick="selectAnswer(1,this.id,5)">5</button>
+                                                            </div>
+                                                            <div>
+                                                                <h6><strong>Very Satisfied</strong></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <div class="container ">
+                                        <div class="row">
+                                            <div class="col-md-11 offset-md-1" id="stepper_intro">
+                                                <div class="stepper__description__info">
+                                                    <p class="lead font-weight-normal">How true is this statement:
+                                                        "BPI-Philam made it easy for me to handle my concern today."
+                                                    </p>
+                                                </div>
+                                                <div class="row feedback">
+                                                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex">
+                                                        <div class="box">
+                                                            <div> <button type="button" class="survey_btn info" id="a21"
+                                                                    onclick="selectAnswer(2,this.id,1)">1</button>
+                                                            </div>
+                                                            <div>
+                                                                <h6><strong>Strongly Disagree</strong></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex">
+                                                        <div class="box">
+                                                            <div> <button type="button" class="survey_btn info" id="a22"
+                                                                    onclick="selectAnswer(2,this.id,2)">2</button>
+                                                            </div>
+                                                            <div>
+                                                                <h6><Strong>Disagree</Strong></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex">
+                                                        <div class="box">
+                                                            <div> <button type="button" class="survey_btn info" id="a23"
+                                                                    onclick="selectAnswer(2,this.id,3)">3</button>
+                                                            </div>
+                                                            <div>
+                                                                <h6><strong>Netural</strong></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex">
+                                                        <div class="box">
+                                                            <div> <button type="button" class="survey_btn info" id="a24"
+                                                                    onclick="selectAnswer(2,this.id,4)">4</button>
+                                                            </div>
+                                                            <div>
+                                                                <h6><strong>Agree</strong></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 row-flex abc">
+                                                        <div class="box">
+                                                            <div> <button type="button" class="survey_btn info" id="a25"
+                                                                    onclick="selectAnswer(2,this.id,5)">5</button>
+                                                            </div>
+                                                            <div>
+                                                                <h6><strong>Strongly Agree</strong></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-11 offset-md-1" id="stepper_intro">
+                                                <div class="stepper__description__info">
+                                                    <p class="lead font-weight-normal">How likely are you to recommend
+                                                        BPI-Philam to your family or friends?
+                                                    </p>
+                                                </div>
+                                                <div class="row feedback justify-content: around-space">
+                                                    <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                        <div class="box1">
+                                                            <div> <button type="button" class="survey_btn info" id="a31"
+                                                                    onclick="selectAnswer(3,this.id,1)">1</button>
+                                                            </div>
+                                                            <div>
+                                                                <h6><strong>Highly Unlikely</strong></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                        <div class="box1">
+                                                            <button type="button" class="survey_btn info" id="a32"
+                                                                onclick="selectAnswer(3,this.id,2)">2</button>
+                                                            <h6></h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                        <div class="box1">
+                                                            <button type="button" class="survey_btn info" id="a33"
+                                                                onclick="selectAnswer(3,this.id,3)">3</button>
+                                                            <h6></h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                        <div class="box1">
+                                                            <button type="button" class="survey_btn info" id="a34"
+                                                                onclick="selectAnswer(3,this.id,4)">4</button>
+                                                            <h6></h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                        <div class="box1">
+                                                            <button type="button" class="survey_btn info" id="a35"
+                                                                onclick="selectAnswer(3,this.id,5)">5</button>
+                                                            <h6></h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                        <div class="box1">
+                                                            <button type="button" class="survey_btn info" id="a36"
+                                                                onclick="selectAnswer(3,this.id,6)">6</button>
+                                                            <h6></h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                        <div class="box1">
+                                                            <button type="button" class="survey_btn info" id="a37"
+                                                                onclick="selectAnswer(3,this.id,7)">7</button>
+                                                            <h6></h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                        <div class="box1">
+                                                            <button type="button" class="survey_btn info" id="a38"
+                                                                onclick="selectAnswer(3,this.id,8)">8</button>
+                                                            <h6></h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                        <div class="box1">
+                                                            <button type="button" class="survey_btn info" id="a39"
+                                                                onclick="selectAnswer(3,this.id,9)">9</button>
+                                                            <h6></h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 row-flex-2  ">
+                                                        <div class="box">
+                                                            <div> <button type="button" class="survey_btn info"
+                                                                    id="a310"
+                                                                    onclick="selectAnswer(3,this.id,10)">10</button>
+                                                            </div>
+                                                            <div>
+                                                                <h6><strong>Highly likely</strong></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-12  footer " id="stepper_intro">
+                                                <button type="submit" class="btnn submit__btn1"
+                                                    style="color:#fff; background-color: #b8123e !important;">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </main>
+    <!-- warning pop up for wrong reference number -->
+    <section class="hide modal fade" id="refNoWarning" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <!-- <button type="button" class="close"  data-dismiss="modal">
+                        ×
+                    </button> -->
+                    <p id="p1">We’re sorry, it seems like the reference number you placed does not match what we
+                        have on record. You may try again, or
+                        contact your financial advisor for assistance.
+                    </p>
+                </div>
+                <button type="button" class="btn btn-danger" style="width: 50%; margin: 0 auto 3rem auto;"
+                    onclick="backToFileClaim()">Ok</button>
+
+            </div>
+    </section>
+    <!-- warning pop up for wrong reference number -->
+    <!-- no data found modal-->
+    <section class="hide modal fade" id="noDataModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p id="p1">No Data found !!
+                    </p>
+                </div>
+                <button type="button" class="btn btn-danger" style="width: 50%; margin: 0 auto 3rem auto;"
+                    onclick="backToFileClaim()">Ok</button>
+            </div>
+    </section>
+    <!-- no data found modal-->
+        <!-- invalid return code-->
+        <section class="hide modal fade" id="invalidReturnCode" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p style="text-align: center;" id="returnMessage">
+                        </p>
+                    </div>
+                    <button type="button" class="btn btn-danger" style="width: 50%; margin: 0 auto 3rem auto;"
+                        onclick="backToFileClaim()">Ok</button>
+                </div>
+        </section>
+        <section class="hide modal fade" id="successfullSurvey" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p style="text-align: center;" id="surveySuccessMsg">Thank you for your time in responding to our survey.
+                        </p>
+                    </div>
+                    <button type="button" class="btn btn-danger" style="width: 50%; margin: 0 auto 3rem auto;"
+                        data-dismiss="modal">Ok</button>
+                </div>
+        </section>
+    <div id="cover-spin"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script src="../../public/webviews/aia_bplac_d2/assets/js/messages.js"></script>
+    <script src="../../public/webviews/aia_bplac_d2/assets/js/main.js"></script>
+    <!-- <script>
+        function getAccidentPage() {
+            console.log('get accident page ');
+            window.parent.postMessage(JSON.stringify({
+                event_code: 'ym-client-event', data: JSON.stringify({
+                    event: {
+                        code: "nextaction",
+                        data: "accident"
+                    }
+                })
+            }), '*');
+        }
+
+        function getIllnessPage() {
+            console.log('get illness page ');
+            window.parent.postMessage(JSON.stringify({
+                event_code: 'ym-client-event', data: JSON.stringify({
+                    event: {
+                        code: "nextaction",
+                        data: "illness"
+                    }
+                })
+            }), '*');
+        }
+
+        function getDeathPage() {
+            console.log('get death page ');
+            window.parent.postMessage(JSON.stringify({
+                event_code: 'ym-client-event', data: JSON.stringify({
+                    event: {
+                        code: "nextaction",
+                        data: "death"
+                    }
+                })
+            }), '*');
+        }
+        function captcha() {
+            // $('#refNoWarning').modal('hide');
+            if (grecaptcha && grecaptcha.getResponse().length > 0) {
+
+
+                trackProgress();
+            } else {
+                $("#err_recaptcha").text('Please verify the reCAPTCHA and tick the check box before submission');
+                $("#err_recaptcha").show();
+                // activeProcess()
+            }
+        }
+
+        function trackUser() {
+
+            $('.dropdown-content').toggle()
+            $('.arrow-up').toggle();
+            $('.arrow-down ').toggle();
+
+
+
+        }
+
+        // -----------drop-2 tracking status functions----------------//
+        var claim_type;
+        var claim_msg_type;
+
+        function dummyRefNumberTest() {
+
+            if ($('#reference_number').val() == '1234') {
+                claim_type = 'accident';
+                claim_msg_type = 'A-1'
+                return true;
+            }
+            else if ($('#reference_number').val() == '5678') {
+                claim_type = 'illness';
+                claim_msg_type = 'I-2'
+                return true;
+            }
+            else if ($('#reference_number').val() == '9012') {
+                claim_type = 'death';
+                claim_msg_type = 'D-2'
+                return true;
+            }
+            else {
+                return false;
+
+            }
+        }
+
+        function trackProgress() {
+             
+            // api call on clicking GO button from claim status screen 
+            var response = {};
+            claim_type = response['claim-type']         // to show header and description based on claim type
+            claim_msg_type = response['claim-msg-type'] // to set the message shown based on status
+            trackMessagesArr = response['trackMessages']  // to populate dropdown
+
+            var x = dummyRefNumberTest() // for testing
+            if (x == false) {
+                $('#refNoWarning').modal('show');
+            }
+            else {
+                displayDateForClaimStatus()
+                $("#img_claim").hide();
+                $("#claim").hide();
+                $("#reference_No").hide();
+
+                // document.getElementById('text').innerHTML = document.getElementById('payout-pickup-ill').innerHTML;
+                // activeProcess()
+                // activeProcessCircle()
+                $("#err_recaptcha").text('');
+                $("#err_recaptcha").hide();
+                $("#reference-divider").show();
+                $("#process_confirmation1").show();
+                setClaimProgressScreen(); // to set header title and image for claim status screen
+                trackProgressDropDown(trackMessagesArr) // for tracking progress dropdown
+            }
+        }
+
+        // to set header title and image for claim status screen
+        function setClaimProgressScreen() {
+            switch (claim_type) {
+                case 'accident':
+                    setClaimProgressScreenHeader('accident')
+                    break;
+                case 'illness':
+                    setClaimProgressScreenHeader('illness')
+                    break;
+                case 'death':
+                    setClaimProgressScreenHeader('death')
+                    break;
+                default: setClaimProgressScreenHeader('accident') // to be removed
+                    break;
+            }
+        }
+
+        function setClaimProgressScreenHeader(title) {
+
+            if (title == 'accident') {
+                document.getElementById('claim-header-text').innerHTML = 'ACCIDENT';
+                document.getElementById('claim-header-desc').innerHTML = 'We have your back and we&#8217;re here to help you focus on your recovery';
+                document.getElementById('claim-header-img').src = '../../public/webviews/aia_bplac_d2/assets/images/accidental.png';
+                setAccidentClaimStatusMsg()
+            }
+            else if (title == 'illness') {
+                document.getElementById('claim-header-text').innerHTML = 'ILLNESS';
+                document.getElementById('claim-header-desc').innerHTML = 'Don’t worry about your medical expenses because we’re here for you.';
+                document.getElementById('claim-header-img').src = '../../public/webviews/aia_bplac_d2/assets/images/illness.png';
+                setIllnessClaimStatusMsg()
+            }
+            else if (title == 'death') {
+                document.getElementById('claim-header-text').innerHTML = 'DEATH';
+                document.getElementById('claim-header-desc').innerHTML = 'Nothing can be harder than losing someone close to us, that’s why we’re here to help you in this trying time.';
+                document.getElementById('claim-header-img').src = '../../public/webviews/aia_bplac_d2/assets/images/death.png';
+                setDeathClaimStatusMsg()
+            }
+        }
+
+
+        // functions to set the message for each claim status //
+        function setAccidentClaimStatusMsg() {
+            switch (claim_msg_type) {
+                case 'A-1':
+                    document.getElementById('claim-msg-text').innerHTML = document.getElementById('A-1').innerHTML;
+                    document.getElementById("turnaround-time-ref").style.display = "block";
+                    document.getElementById("payment-ref").style.display = "none";
+                    twoStepperActive()
+
+                    break;
+                case 'A-2':
+                    document.getElementById('claim-msg-text').innerHTML = document.getElementById('A-2').innerHTML;
+                    document.getElementById("turnaround-time-ref").style.display = "none";
+                    document.getElementById("payment-ref").style.display = "none";
+                    allStepperActive()
+                    break;
+                case 'A-3':
+                    document.getElementById('claim-msg-text').innerHTML = document.getElementById('A-3').innerHTML;
+                    document.getElementById("turnaround-time-ref").style.display = "none";
+                    document.getElementById("payment-ref").style.display = "none";
+                    allStepperActive()
+                    break;
+                case 'A-4':
+                    document.getElementById('claim-msg-text').innerHTML = document.getElementById('A-4').innerHTML;
+                    document.getElementById("turnaround-time-ref").style.display = "none";
+                    document.getElementById("payment-ref").style.display = "none";
+                    allStepperActive()
+                    break;
+                case 'A-5':
+                    document.getElementById('claim-msg-text').innerHTML = document.getElementById('A-5').innerHTML;
+                    document.getElementById("turnaround-time-ref").style.display = "none";
+                    document.getElementById("payment-ref").style.display = "none";
+                    allStepperActive()
+                    break;
+                default: document.getElementById('claim-msg-text').innerHTML = 'No message found'
+                    break;
+            }
+        }
+        function setIllnessClaimStatusMsg() {
+            switch (claim_msg_type) {
+                case 'I-1':
+                    document.getElementById('claim-msg-text').innerHTML = document.getElementById('I-1').innerHTML;
+                    document.getElementById("turnaround-time-ref").style.display = "none";
+                    document.getElementById("payment-ref").style.display = "none";
+                    twoStepperActive()
+                    break;
+                case 'I-2':
+                    document.getElementById('claim-msg-text').innerHTML = document.getElementById('I-2').innerHTML;
+                    document.getElementById("payment-ref").style.display = "block"; // to display payment box
+                    document.getElementById("turnaround-time-ref").style.display = "none";
+                    allStepperActive()
+                    break;
+                case 'I-3':
+                    document.getElementById('claim-msg-text').innerHTML = document.getElementById('I-3').innerHTML;
+                    document.getElementById("payment-ref").style.display = "block";
+                    document.getElementById("turnaround-time-ref").style.display = "none";
+                    allStepperActive()
+                    break;
+                default: document.getElementById('claim-msg-text').innerHTML = 'No message found'
+                    break;
+            }
+
+        }
+        function setDeathClaimStatusMsg() {
+            switch (claim_msg_type) {
+                case 'D-1':
+                    document.getElementById('claim-msg-text').innerHTML = document.getElementById('D-1').innerHTML;
+                    document.getElementById("payment-ref").style.display = "block";
+                    document.getElementById("turnaround-time-ref").style.display = "none";
+                    allStepperActive()
+                    break;
+                case 'D-2':
+                    document.getElementById('claim-msg-text').innerHTML = document.getElementById('D-2').innerHTML;
+                    document.getElementById("payment-ref").style.display = "block";
+                    document.getElementById("turnaround-time-ref").style.display = "none";
+                    allStepperActive()
+                    break;
+                default: 'No message'
+                    break;
+            }
+        }
+        // functions to set the message for each claim status //
+
+        //-----functions for stepper-----//
+
+        //function to be called if all three steps are to be highlighted//
+        function allStepperActive() {
+            $("#step1").addClass("active");
+            $("#step2").addClass("active");
+            $("#step3").addClass("active");
+            $("#step3").addClass("done");
+            document.getElementById('step-circle-1').style.backgroundColor = "#8bc435";
+            document.getElementById('step-circle-1').style.borderColor = "#8bc435";
+            document.getElementById('step-circle-2').style.backgroundColor = "#8bc435";
+            document.getElementById('step-circle-2').style.borderColor = "#8bc435";
+            document.getElementById('step-circle-3').style.backgroundColor = "#8bc435";
+            document.getElementById('step-circle-3').style.borderColor = "#8bc435";
+
+
+            document.getElementById('step-circle-title-1').style.color = 'black';
+            document.getElementById('step-circle-title-2').style.color = 'black';
+            document.getElementById('step-circle-title-3').style.color = '#8bc435';
+            //change stepper bar colour based on status//
+            document.getElementById('step-circle-1').style.width = '20px';
+            document.getElementById('step-circle-1').style.height = '20px';
+            document.getElementById('step-circle-2').style.width = '20px';
+            document.getElementById('step-circle-2').style.height = '20px';
+            //change stepper bar colour based on status//
+            document.getElementById('step-bar-1').style.border = '1px solid #8bc435'
+            document.getElementById('step-bar-2').style.border = '1px solid #8bc435'
+            document.getElementById('step-bar-3').style.border = '1px solid #8bc435'
+            document.getElementById('step-bar-4').style.border = '1px solid #8bc435'
+
+
+        }
+
+        //function to be called if only two steps are to be highlighted//
+        function twoStepperActive() {
+            $("#step1").addClass("active");
+            $("#step2").addClass("active");
+            $("#step3").addClass("done");
+            document.getElementById('step-circle-1').style.backgroundColor = "#b8123e";
+            document.getElementById('step-circle-1').style.borderColor = "#b8123e";
+            document.getElementById('step-circle-2').style.backgroundColor = "#b8123e";
+            document.getElementById('step-circle-2').style.borderColor = "#b8123e";
+
+            document.getElementById('step-circle-title-1').style.color = 'black';
+            document.getElementById('step-circle-title-2').style.color = 'black';
+            document.getElementById('step-circle-title-3').style.color = '#c7c2c2';
+
+            document.getElementById('step-circle-3').style.backgroundColor = "#c7c2c2";
+            document.getElementById('step-circle-3').style.borderColor = "#c7c2c2";
+            //change stepper circle size based on status//
+            document.getElementById('step-circle-1').style.width = '20px';
+            document.getElementById('step-circle-1').style.height = '20px';
+            document.getElementById('step-circle-2').style.width = '20px';
+            document.getElementById('step-circle-2').style.height = '20px';
+            //change stepper bar colour based on status//
+            document.getElementById('step-bar-1').style.border = '1px solid rgb(184, 18, 62)'
+            document.getElementById('step-bar-2').style.border = '1px solid rgb(184, 18, 62)'
+
+        }
+        //-------functions for stepper------//
+
+        function trackProgressDropDown(trackMessagesArr) {
+            //to be reomvesd -testing
+            if (claim_msg_type == 'A-1') {
+                trackMessagesArr = [1, 4, 5, 7, 8] // for testing - to be removed
+            }
+            if (claim_msg_type == 'I-2') {
+                trackMessagesArr = [2, 4, 6, 7, 8, 9, 11] // for testing - to be removed
+            }
+
+            if (claim_msg_type == 'D-2') {
+                trackMessagesArr = [3, 4, 6, 7, 11, 12] // for testing - to be removed
+            }
+            else {
+                trackMessagesArr = [1, 4, 5, 7, 8] // for testing - to be removed
+            }
+            //to be reomved -testing
+
+            var finaltext = '';
+            trackMessagesArr.forEach(function (item) {
+                progress_msges.forEach(function (msg) {
+                    if (item == msg['id']) {
+                        finaltext = finaltext + '<div class="step step-active"><div><div class="circle " id="circle2"><i class="fa fa-check" ></i ></div ></div><div><div class="title">' + msg['msg'] + '</div></div></div>'
+                        // break;
+                    }
+
+                })
+
+            });
+            console.log('finaltext' + finaltext)
+            document.getElementById('progs-status').innerHTML = finaltext // set the populated dropdown details to html
+        }
+
+
+        // function to display date at top in the claim status screen//
+        function displayDateForClaimStatus() {
+            var date = new Date();
+
+            var options = {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric"
+            };
+
+            var x = date.toLocaleDateString("en", options);
+            var parts = x.split(',');
+            var day = parts[0];
+            var mnthDate = parts[1].split(' ')[1];
+            var year = parts[2];
+            var time = parts[3];
+            var finalDate = day + ' ' + date.getDate() + ' ' + mnthDate + year + ' at ' + time;
+            document.getElementById("displayDt").innerHTML = finalDate
+        }
+
+
+// -----------drop-2 tracking status functions----------------//
+
+    </script> -->
+</body>
+
+</html>
+<!-- comments -->
