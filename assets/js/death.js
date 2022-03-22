@@ -124,7 +124,7 @@ function resetTimer() {
 function timerIncrement() {
   currSeconds = currSeconds + 1
   if (currSeconds == 1800) {
-    window.top.location = "https://www.bpi-philam.com"
+    window.top.location = "https://www.bpi-aia.com.ph/en/index.html"
   }
 }
 

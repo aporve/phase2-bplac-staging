@@ -50,7 +50,7 @@ function resetTimer() {
 function timerIncrement() {
     currSeconds = currSeconds + 1;
     if (currSeconds == 1800) {
-        window.top.location = 'https://www.bpi-philam.com'
+        window.top.location = 'https://www.bpi-aia.com.ph/en/index.html'
     }
 }
 function getAccidentPage() {
@@ -474,7 +474,7 @@ function setAccidentClaimStatusMsg() {
         }
         else {
             if (claimStatus.toLowerCase().trim() == 'received') {
-                document.getElementById('claim-msg-text').innerHTML = '<div > <h3>YOUR REQUEST IS BEING PROCESSED</h3> <br /> <p class="font-weight-justy request-font"> We have received your claim request and it is now in process. Kindly expect an SMS update on the status of your request in 7 to 10 working days . </p> <br /> <p class="font-weight-justy request-font"> Should additional requirements be needed, we will reach out to you immediately. </p> <br /> <p class="font-weight-normal request-font"> To check the status of your claims request, please type in your reference number ' + transactionNumber + ' <a href="main.html">here</a>. </p> </div> '
+                document.getElementById('claim-msg-text').innerHTML = '<div > <h3>YOUR REQUEST IS BEING PROCESSED</h3> <br /><p>Our sincerest condolences for your loss. </p><br /> <p class="font-weight-justy request-font"> We have received your claim request and it is now in process. Kindly expect an SMS update on the status of your request in 7 to 10 working days . </p> <br /> <p class="font-weight-justy request-font"> Should additional requirements be needed, we will reach out to you immediately. </p> <br /> <p class="font-weight-normal request-font"> To check the status of your claims request, please type in your reference number ' + transactionNumber + ' <a href="main.html">here</a>. </p> </div> '
                 document.getElementById("turnaround-time-ref").style.display = "block";
                 document.getElementById("payment-ref").style.display = "none";
                 twoStepperActive();
