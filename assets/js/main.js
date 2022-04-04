@@ -687,7 +687,7 @@ function setIllnessClaimStatusMsg() {
         }
         else {
             if (claimStatus.toLowerCase().trim() == 'received') {
-                document.getElementById('claim-msg-text').innerHTML = ' <div> <h3>YOUR REQUEST IS BEING PROCESSED</h3> <br /> <p class="font-weight-justy request-font"> We have received your claim request and it is now in process. Kindly expect an SMS update on the status of your request in 7 to 10 working days . </p> <br /> <p class="font-weight-normal request-font"> If we need additional documents to support your request, we&#39;ll reach out to you immediately.</p> <br /> <p class="font-weight-normal request-font"> Need assistance? Chat with Bessie at https://m.me/BessieofBPIAIA or email us at BPIAIA.customerservice@aia.com. You may also call our Customer Hotline at (02) 8528-5501.</p> </div>'
+                document.getElementById('claim-msg-text').innerHTML = ' <div> <h3>YOUR REQUEST IS BEING PROCESSED</h3> <br /> <p class="font-weight-justy request-font"> Hi, ' + claimantFirstName + '.Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request. </p> <br /> <p class="font-weight-normal request-font"> If we need additional documents to support your request, we&#39;ll reach out to you immediately.</p> <br /> <p class="font-weight-normal request-font"> Need assistance? Chat with Bessie at https://m.me/BessieofBPIAIA or email us at BPIAIA.customerservice@aia.com. You may also call our Customer Hotline at (02) 8528-5501.</p> </div>'
                 document.getElementById("turnaround-time-ref").style.display = "block";
                 document.getElementById("payment-ref").style.display = "none";
                 twoStepperActive();
