@@ -820,7 +820,7 @@ function setDeathClaimStatusMsg() {
 
             });
             if(claimantFirstName !== ''){
-                document.getElementById('claim-msg-text').innerHTML = '<div> <h3>YOUR OTHER CLAIMS DOCUMENTS</h3>  <br /><p>Our sincerest condolences for your loss. </p><br /> <p class="font-weight-justy request-font"> Hi ' + claimantFirstName + '.We have reviewed your initial claim request submission and identified that we may need the following documents for us to proceed: </p > <br /> <p class="font-weight-normal request-font"> <div style="padding-left: 10px;"> ' + finalDocsList + '</div> </p> <br /> <p class="font-weight-normal request-font"> Don&#39;t worry you can easily submit scanned copies of these documents via e-mail at BPIAIA.customerservice@aia.com so we can proceed with your claim request. </p> </div>';
+                document.getElementById('claim-msg-text').innerHTML = '<div> <h3>YOUR OTHER CLAIMS DOCUMENTS</h3>  <br /><p>Our sincerest condolences for your loss. </p><br /> <p class="font-weight-justy request-font"> Hi ' + claimantFirstName + '.We have reviewed your initial claim request submission and identified that we may need the following documents for us to proceed: </p > <br /> <p class="font-weight-normal request-font"> <div style="padding-left: 10px;"> ' + finalDocsList + '</div> </p> <br /> <p class="font-weight-normal request-font"> Don&#39;t worry, you can easily submit scanned copies of these documents via e-mail at BPIAIA.customerservice@aia.com so we can proceed with your claim request. </p> </div>';
                 document.getElementById("turnaround-time-ref").style.display = "block";
                 document.getElementById("payment-ref").style.display = "none";
                 twoStepperActive();
