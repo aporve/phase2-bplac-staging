@@ -7334,10 +7334,18 @@
 			aria-hidden="true" data-backdrop="static" data-keyboard="false">
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
+					<div class="modal-header">
+                        <h5 class="modal-title">BPI</h5>
+                        <button type="button" class="close" aria-label="Close"
+                        style="text-align: right;padding:12px"><span aria-hidden="true"
+                            onclick="closeModal()">&times;</span></button>
+                      </div>
 					<div class="modal-body">
-						<button type="button" class="close" aria-label="Close"
+
+						<!-- <button type="button" class="close" aria-label="Close"
 							style="text-align: right;padding:12px"><span aria-hidden="true"
-								onclick="closeModal()">&times;</span></button><br>
+								onclick="closeModal()">&times;</span></button><br> -->
+
 					<!--	<p id="otp-text">We have send a One-Time PIN to the
 							<br> mobile number <span id="user_mobile"></span>.
 							<br> Kindly enter the OTP in the space provided below.
@@ -7356,7 +7364,7 @@
 					</p>
 					<p id="otp-text">Didn’t get the code? Please check --
 							<br>If you’re in an area with strong mobile coverage to receive the SMS.
-							<br> If your current mobile number matches what we have on record. If not, give us a call at (02) 8528-5501 to have it updated. 
+							<!-- <br> If your current mobile number matches what we have on record. If not, give us a call at (02) 8528-5501 to have it updated.  -->
 							<br><br> Click
 							<a style="color:#1b89f0 ;cursor: pointer;" onclick="resendOtp('resend')">here</a> to
 							resend

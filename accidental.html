@@ -1959,10 +1959,16 @@
             aria-hidden="true" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <div class="modal-body">
+                    <div class="modal-header">
+                        <h5 class="modal-title">BPI</h5>
                         <button type="button" class="close" aria-label="Close"
+                        style="text-align: right;padding:12px"><span aria-hidden="true"
+                            onclick="closeModal()">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- <button type="button" class="close" aria-label="Close"
                             style="text-align: right;padding:12px"><span aria-hidden="true"
-                                onclick="closeModal()">&times;</span></button><br>
+                                onclick="closeModal()">&times;</span></button><br> -->
                        <!--- <p id="otp-text">We have sent a One-Time PIN to your
                             <br> mobile number <span id="user_mobile"></span>.
                             <br> Kindly enter the OTP in the space below.
@@ -1980,14 +1986,29 @@
                         </p>  -->
 
 
-                        <p id="otp-text">We have sent a One-Time PIN to your
+                        <!-- <p id="otp-text">We have sent a One-Time PIN to your
                             <br> mobile number <span id="user_mobile"></span>.
                             <br> Kindly enter the OTP in the space below.
                         </p>
                         <p id="otp-text">Your OTP expires after two minutes. Click <a style="color:#1b89f0 ;cursor: pointer;" onclick="resendOtp('resend')">here</a> to resend a new one.
                         </p>
-                        <p id="otp-text">If your current mobile number does not match our records, kindly update your contact details via <a href="https://wwwuat.bpi-aia.com.ph/en/help-support/contact-info-update.html" target="_blank" style="color:#1b89f0 ;cursor: pointer;" target="_blank">ePlan</a>  or by calling our hotline at (02) 8528-2000.
-                        </p> 
+                        <p id="otp-text">If your current mobile number does not match our records, kindly update your contact details via <a href="https://wwwuat.bpi-aia.com.ph/en/help-support/contact-info-update.html" target="_blank" style="color:#1b89f0 ;cursor: pointer;" target="_blank">ePlan</a>  or by calling our hotline at (02) 8528-5501.
+                        </p>  -->
+
+                        <p id="otp-text">We sent a One-Time PIN to your registered
+                            <br> mobile number <span id="user_mobile"></span>.
+                            <br> Please enter the 6-digit PIN in the space below.
+                        </p>
+                        <p id="otp-text">Your OTP expires after two minutes. Input the code you receive immediately.
+                        </p>
+                        <p id="otp-text">Didn’t get the code? Please check --
+                            <br>If you’re in an area with strong mobile coverage to receive the SMS.
+                            <br> If your current mobile number matches what we have on record. To update it, <a href="https://wwwuat.bpi-aia.com.ph/en/help-support/contact-info-update.html" target="_blank" style="color:#1b89f0 ;cursor: pointer;">click here</a> 
+                            <br><br> Click
+                            <a style="color:#1b89f0 ;cursor: pointer;" onclick="resendOtp('resend')">here</a> to
+                            resend
+                        
+                        </p>
 
                         <!-- <p id="otp-text">We sent a One-Time PIN to your registered
                             <br> mobile number <span id="user_mobile"></span>.
