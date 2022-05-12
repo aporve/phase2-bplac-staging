@@ -90,7 +90,6 @@ function getDeathPage() {
 }
 
 function captcha() {
-    console.log('-----In captcha Function-----')
     var ref_num = $("#reference_number").val();
     var specRefNo = specialcharacterValidation(ref_num);
     var numRefNo = onlyNumberValidate(ref_num);
@@ -119,11 +118,10 @@ function captcha() {
     // $('#refNoWarning').modal('hide');
     if (ref_num.length != 0 && ref_num.length == 10 && lenRefNo == false && specRefNo == false && numRefNo == true) {
         if (grecaptcha && grecaptcha.getResponse().length > 0) {
-            console.log('IN If condition')
+
             referenceNumber = document.getElementById('reference_number').value
             if (referenceNumber != null) { trackProgress(); }
         } else {
-            console.log('-----In Else----')
             $("#err_recaptcha").text('Please verify the reCAPTCHA and tick the check box before submission');
             $("#err_recaptcha").show();
             // activeProcess()
@@ -304,7 +302,6 @@ function trackProgress() {
 
             }
         } catch (error) {
-            console.error('Error', error);
             // alert(error)
 
         }
@@ -480,7 +477,7 @@ function setAccidentClaimStatusMsg() {
         }
         else {
             if (claimStatus.toLowerCase().trim() == 'received') {
-                document.getElementById('claim-msg-text').innerHTML = ' <div> <h3>YOUR REQUEST IS BEING PROCESSED</h3> <br /> <p class="font-weight-justy request-font"> Hi ' + claimantFirstName + '.Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request. </p> <br /> <p class="font-weight-normal request-font"> If we need additional documents to support your request, we&#39;ll reach out to you immediately.</p> <br /> <p class="font-weight-normal request-font"> You may also check the progress of your request at <a href="https://aporve.github.io/phase2-bplac-staging/main">here</a>. Just type in your reference number ' + transactionNumber + ' to view the status of your request.</p> </div>'
+                document.getElementById('claim-msg-text').innerHTML = ' <div> <h3>YOUR REQUEST IS BEING PROCESSED</h3> <br /> <p class="font-weight-justy request-font"> Hi, ' + claimantFirstName + '.Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request. </p> <br /> <p class="font-weight-normal request-font"> If we need additional documents to support your request, we&#39;ll reach out to you immediately.</p> <br /> <p class="font-weight-normal request-font"> You may also check the progress of your request at <a href="https://aporve.github.io/phase2-bplac-staging/main">here</a>. Just type in your reference number ' + transactionNumber + ' to view the status of your request.</p> </div>'
                 document.getElementById("turnaround-time-ref").style.display = "block";
                 document.getElementById("payment-ref").style.display = "none";
                 twoStepperActive();
@@ -493,7 +490,7 @@ function setAccidentClaimStatusMsg() {
                 allStepperActive()
             }
             else if (claimStatus.toLowerCase().trim() == 'denied1') {
-                document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /> <p class="font-weight-justy request-font"> Hi ' + claimantFirstName + '. We have reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. Your policy doesn’t cover Accident. </p> <br /> <p> We understand that you’re going through a tough time, ' + claimantFirstName + '. While we can’t release a payment for this claim, we can assure you that your life insurance coverage remains intact for the future. </p> <br /> <p> If you have any questions, you may reach out to us by chatting with Bessie the chatbot at . You may also email us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div>'
+                document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /> <p class="font-weight-justy request-font"> Hi ' + claimantFirstName + '. We have reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. Your policy doesn’t cover Accident. </p> <br /> <p> We understand that you’re going through a tough time, ' + claimantFirstName + '. While we can’t release a payment for this claim, we can assure you that your life insurance coverage remains intact for the future. </p> <br /> <p> If you have any questions, you may reach out to us by chatting with Bessie the chatbot at  <a href="https://m.me/BessieofBPIAIA">https://m.me/BessieofBPIAIA</a>. You may also email us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div>'
                 document.getElementById("turnaround-time-ref").style.display = "none";
                 document.getElementById("payment-ref").style.display = "none";
 
@@ -690,7 +687,7 @@ function setIllnessClaimStatusMsg() {
         }
         else {
             if (claimStatus.toLowerCase().trim() == 'received') {
-                document.getElementById('claim-msg-text').innerHTML = ' <div> <h3>YOUR REQUEST IS BEING PROCESSED</h3> <br /> <p class="font-weight-justy request-font"> Hi, ' + claimantFirstName + '.Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request. </p> <br /> <p class="font-weight-normal request-font"> If we need additional documents to support your request, we&#39;ll reach out to you immediately.</p> <br /> <p class="font-weight-normal request-font"> You may also check the progress of your request at <a href="https://aporve.github.io/phase2-bplac-staging/main">here</a>. Just type in your reference number ' + transactionNumber + ' to view the status of your request.</p> </div>'
+                document.getElementById('claim-msg-text').innerHTML = ' <div> <h3>YOUR REQUEST IS BEING PROCESSED</h3> <br /> <p class="font-weight-justy request-font"> Hi ' + claimantFirstName + '.Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request. </p> <br /> <p class="font-weight-normal request-font"> If we need additional documents to support your request, we&#39;ll reach out to you immediately.</p> <br /> <p class="font-weight-normal request-font"> Need assistance? Chat with Bessie at  <a href="https://m.me/BessieofBPIAIA">https://m.me/BessieofBPIAIA</a> or email us at BPIAIA.customerservice@aia.com. You may also call our Customer Hotline at (02) 8528-5501.</p> </div>'
                 document.getElementById("turnaround-time-ref").style.display = "block";
                 document.getElementById("payment-ref").style.display = "none";
                 twoStepperActive();
@@ -744,7 +741,7 @@ function setIllnessClaimStatusMsg() {
         }
         else {
             if (claimStatus.toLowerCase().trim() == 'received') {
-                document.getElementById('claim-msg-text').innerHTML = ' <div> <h3>YOUR REQUEST IS BEING PROCESSED</h3> <br /> <p class="font-weight-justy request-font">Hi ' + claimantFirstName + '. Hang in there as we process your request. Expect an SMS update from us within 7 to 10 working days on the status of your request. </p> <br /> <p class="font-weight-normal request-font"> If we need additional documents to support your request, we&#39;ll reach out to you immediately. </p> <br /> <p class="font-weight-normal request-font"> You may also check the progress of your request at <a href="https://aporve.github.io/phase2-bplac-staging/main.html">Status Tracker</a>. Just type in your reference number ' + transactionNumber + ' to view the status of your request. </p> </div>'
+                document.getElementById('claim-msg-text').innerHTML = ' <div> <h3>YOUR REQUEST IS BEING PROCESSED</h3> <br /> <p class="font-weight-justy request-font">Hi ' + claimantFirstName + ' Hang in there as we process your request. Kindly expect an SMS update from us within 7 to 10 working days on the status of your request. </p> <br /> <p class="font-weight-normal request-font"> If we need additional documents to support your request, we&#39;ll reach out to you immediately. </p> <br /> <p class="font-weight-normal request-font"> You may also check the progress of your request at <a href="https://aporve.github.io/phase2-bplac-staging/main">Status Tracker</a>. Just type in your reference number ' + transactionNumber + ' to view the status of your request. </p> </div>'
                 document.getElementById("turnaround-time-ref").style.display = "block";
                 document.getElementById("payment-ref").style.display = "none";
                 twoStepperActive();
