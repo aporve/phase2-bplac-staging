@@ -1149,8 +1149,13 @@ function handleFormAddBeneficiary(event) {
       (beneficiary["check2"] = dataBen.privacy_consent_beneficiary_2)
     BeneficiaryList.push(beneficiary)
 
-    $("#customer_Name").text(`Hi ${customName}. Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request.`)
-    console.log('beneficiaryCount 1153---', beneficiaryCount)
+    // $("#customer_Name").text(`Hi ${customName}. Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request.`)
+    console.log('beneficiaryCount 1153---', beneficiaryCount);
+    if (beneficiaryCount == 1) {
+      $("#customer_Name").text(`Hi ${customName}. Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request.`)
+    }else {
+      $("#customer_Name").text(`Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request.`)
+    }
     if (buttonCount == 1) {
       data1 = dataBen
       console.log("data1", data1)
@@ -1734,7 +1739,12 @@ function handleForm(event) {
     $("#death_data_privacy").hide()
     $("#payment").show()
     customName = field_BeneficiaryFirstName
-    $("#customer_Name").text(`Hi ${field_BeneficiaryFirstName}. Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request.`)
+    // $("#customer_Name").text(`Hi ${field_BeneficiaryFirstName}. Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request.`)
+    if(  beneficiaryCount ==1 ) {
+      $("#customer_Name").text(`Hi ${field_BeneficiaryFirstName}. Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request.`)
+    }else {
+      $("#customer_Name").text(`Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request.`)
+    }
     console.log('beneficiaryCount 1738---', beneficiaryCount)
     console.log("Data -> ", data)
   } else if (comapareDates == false && (field_DOB !== "" || field_DOID !== "")) {
