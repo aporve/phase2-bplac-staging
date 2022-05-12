@@ -90,6 +90,7 @@ function getDeathPage() {
 }
 
 function captcha() {
+    console.log('-----In captcha Function-----')
     var ref_num = $("#reference_number").val();
     var specRefNo = specialcharacterValidation(ref_num);
     var numRefNo = onlyNumberValidate(ref_num);
@@ -118,10 +119,11 @@ function captcha() {
     // $('#refNoWarning').modal('hide');
     if (ref_num.length != 0 && ref_num.length == 10 && lenRefNo == false && specRefNo == false && numRefNo == true) {
         if (grecaptcha && grecaptcha.getResponse().length > 0) {
-
+            console.log('IN If condition')
             referenceNumber = document.getElementById('reference_number').value
             if (referenceNumber != null) { trackProgress(); }
         } else {
+            console.log('-----In Else----')
             $("#err_recaptcha").text('Please verify the reCAPTCHA and tick the check box before submission');
             $("#err_recaptcha").show();
             // activeProcess()
@@ -302,6 +304,7 @@ function trackProgress() {
 
             }
         } catch (error) {
+            console.error('Error', error);
             // alert(error)
 
         }
