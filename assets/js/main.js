@@ -810,8 +810,6 @@ function setIllnessClaimStatusMsg() {
     // }
 
 }
-
-
 function setDeathClaimStatusMsg() {
     console.log('-----In Death claim-----')
     if (isFallout.toLowerCase() == 'y') {
