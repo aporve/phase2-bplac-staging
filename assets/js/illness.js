@@ -1187,6 +1187,7 @@ function preSubmitCall() {
                             $("#step2>div").addClass("active");
                             if (otpSubmitted == false) { otpTimer(); isOtpPopShown = true; } else {
                                 $('#requirements').hide();
+                                $('#popUpPUACTA').modal('show');
                                 $('#payment').show();
                             }
                             // })
@@ -2852,6 +2853,7 @@ function submitOtp() {
                         document.getElementById("back_btn1").style.display = "none";
                         $('#otpPopUp').modal('hide');
                         $('#requirements').hide();
+                        $('#popUpPUACTA').modal('show');
                         $('#payment').show();
                         otpSubmitted = true;
                         document.getElementById('otp').value = '';

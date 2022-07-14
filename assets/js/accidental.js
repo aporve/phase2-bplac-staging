@@ -2517,6 +2517,17 @@ function handleAddBankInfo(event) {
       field_Currency1: $("select#from_currency1 option").filter(":selected").val(),
       upload_file_6: file7.value
     }
+
+    let BankDetailsList = [];
+    // let BeneficiaryList = [];
+    BankDetails["beneficiaryNo"] = 1
+    BankDetails["bankName"] = field_Bank1;
+    BankDetails["bankBranch"] = field_Branch1;
+    BankDetails["accountName"] = field_AccountName1;
+    BankDetails["accountNumber"] = field_AccountNumber1;
+    BankDetails["accountCurrency"] = $("select#from_currency1 option").filter(":selected").val(),
+      BankDetailsList.push(BankDetails);
+      
     document.getElementById("account_details1_btn").disabled = true;
     document.getElementById("account_details1_btn").style.cursor = "no-drop";
     var nodes = document.getElementById("addbank_form").getElementsByTagName('*');
@@ -2901,6 +2912,7 @@ function submitOtp() {
 
             $('#otpPopUp').modal('hide');
             $('#requirements').hide();
+            $('#popUpPUACTA').modal('show');
             $('#payment').show();
             otpSubmitted = true;
             document.getElementById('otp').value = '';
@@ -3062,6 +3074,7 @@ function preSubmitCall() {
               if (otpSubmitted == false) { otpTimer(); isOtpPopShown = true; } else {
 
                 $('#requirements').hide();
+                $('#popUpPUACTA').modal('show');
                 $('#payment').show();
               }
 

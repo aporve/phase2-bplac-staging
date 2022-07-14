@@ -1737,6 +1737,7 @@ function handleForm(event) {
     $("#step2>div").addClass("active")
     $("#form_wrapper").hide()
     $("#death_data_privacy").hide()
+    $('#popUpPUACTA').modal('show');
     $("#payment").show()
     customName = field_BeneficiaryFirstName
     // $("#customer_Name").text(`Hi ${field_BeneficiaryFirstName}. Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request.`)
