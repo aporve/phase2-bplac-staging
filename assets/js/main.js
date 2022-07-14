@@ -37,7 +37,7 @@ var currSeconds = 0;
 var survey_form = document.getElementById('customer_survey');
 survey_form.addEventListener('submit', submit_survey);
 
-$(document).ready(function (event) { 
+$(document).ready(function (event) {
     let idleInterval = setInterval(timerIncrement, 1000);
     $(this).mousemove(resetTimer);
     $(this).keypress(resetTimer);
@@ -205,7 +205,7 @@ function trackProgress() {
 
             if (eventData.data) {
                 let event = JSON.parse(eventData.data);
-                console.log('---Event Data---',event);
+                console.log('---Event Data---', event);
                 if (event.event_code == 'claimStatusResponse') { //sucess
                     console.log(event.data)
                     if (event.data.returnCode == '0' || event.data.retCode == '0') {
@@ -263,7 +263,7 @@ function trackProgress() {
                             else {
                                 document.getElementById('payment_amount').innerHTML = ''
                                 $("#payment-ref").css("background-color", "lightgray");
-                                $("#payment_text").css({"color":"#b3b1b2"});
+                                $("#payment_text").css({ "color": "#b3b1b2" });
                             }
 
                             displayDateForClaimStatus() // date to be displayed on top
@@ -672,7 +672,7 @@ function setIllnessClaimStatusMsg() {
     console.log('-----In Illness ----')
     if (isFallout.toLowerCase() == 'y') {
 
-        if (docsPending == 'y' && docsReceived == 'n'  && claimStatus == 'received') {
+        if (docsPending == 'y' && docsReceived == 'n' && claimStatus == 'received') {
 
             twoStepperActive();
             var finalDocsList = '';
@@ -726,7 +726,7 @@ function setIllnessClaimStatusMsg() {
         }
     }
     else if (isFallout.toLowerCase() == 'n') {
-        if (docsPending == 'y' && docsReceived == 'n'  && claimStatus == 'received') {
+        if (docsPending == 'y' && docsReceived == 'n' && claimStatus == 'received') {
             var finalDocsList = '';
             requirementsList.forEach(function (item) {
                 finalDocsList = finalDocsList + '<div style="display: flex;align-items: center; padding-bottom: 1px;"> <div id="outer-circle"> <div id="inner-circle"></div> </div> <p style="padding-left:7px">' + ' ' + item.name + '</p> </div>'
@@ -811,18 +811,18 @@ function setDeathClaimStatusMsg() {
     console.log('-----In Death claim-----')
     if (isFallout.toLowerCase() == 'y') {
 
-        if (docsPending == 'y' && docsReceived == 'n'  && claimStatus == 'received') {
+        if (docsPending == 'y' && docsReceived == 'n' && claimStatus == 'received') {
             var finalDocsList = '';
             requirementsList.forEach(function (item) {
                 finalDocsList = finalDocsList + '<div style="display: flex;align-items: center; padding-bottom: 1px;"> <div id="outer-circle"> <div id="inner-circle"></div> </div> <p style="padding-left:7px">' + ' ' + item.name + '</p> </div>'
 
             });
-            if(claimantFirstName !== ''){
+            if (claimantFirstName !== '') {
                 document.getElementById('claim-msg-text').innerHTML = '<div> <h3>YOUR OTHER CLAIMS DOCUMENTS</h3>  <br /><p>Our sincerest condolences for your loss. </p><br /> <p class="font-weight-justy request-font"> Hi ' + claimantFirstName + '.We have reviewed your initial claim request submission and identified that we may also need the following documents for us to proceed: </p > <br /> <p class="font-weight-normal request-font"> <div style="padding-left: 10px;"> ' + finalDocsList + '</div> </p> <br /> <p class="font-weight-normal request-font"> Don&#39;t worry, you can easily submit scanned copies of these documents via e-mail at BPIAIA.customerservice@aia.com so we can proceed with your claim request. </p> </div>';
                 document.getElementById("turnaround-time-ref").style.display = "block";
                 document.getElementById("payment-ref").style.display = "none";
                 twoStepperActive();
-            }else {
+            } else {
                 document.getElementById('claim-msg-text').innerHTML = '<div> <h3>YOUR OTHER CLAIMS DOCUMENTS</h3>  <br /><p>Our sincerest condolences for your loss. </p><br /> <p class="font-weight-justy request-font"> We have reviewed your initial claim request submission and identified that we may also need the following documents for us to proceed: </p > <br /> <p class="font-weight-normal request-font"> <div style="padding-left: 10px;"> ' + finalDocsList + '</div> </p> <br /> <p class="font-weight-normal request-font"> Don’t worry worry you can easily submit scanned copies of these documents via e-mail at BPIAIA.customerservice@aia.com so we can proceed with your claim request. </p> </div>';
                 document.getElementById("turnaround-time-ref").style.display = "block";
                 document.getElementById("payment-ref").style.display = "none";
@@ -851,11 +851,11 @@ function setDeathClaimStatusMsg() {
                     document.getElementById("payment-ref").style.display = "block";
                 }
                 else {
-                    if( claimantFirstName !== '') {
+                    if (claimantFirstName !== '') {
                         document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /> <p class="font-weight-justy request-font"> We hope all is well with you and your family. </p> <br /> <p class="font-weight-justy request-font"> Your claim request has been approved. Kindly expect receipt of your benefit through your chosen payout method. You will receive an update when your benefit is ready for release. </p> <br /> <p> This information has been sent as well via SMS for your reference. </p> <br /> </div> '
                         document.getElementById("turnaround-time-ref").style.display = "none";
                         document.getElementById("payment-ref").style.display = "none";
-                    }else {
+                    } else {
                         document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /> <p class="font-weight-justy request-font"> We hope all is well with you and your family. </p> <br /> <p class="font-weight-justy request-font"> Your claim request has been approved. Kindly expect receipt of your benefit through your chosen payout method. You will receive an update when your benefit is ready for release. </p> <br /> <p> This information has been sent as well via SMS for your reference. </p> <br /> </div> '
                         document.getElementById("turnaround-time-ref").style.display = "none";
                         document.getElementById("payment-ref").style.display = "none";
@@ -865,12 +865,12 @@ function setDeathClaimStatusMsg() {
                 allStepperActive()
             }
             else if (claimStatus.toLowerCase().trim() == 'denied1') {
-                if(claimantFirstName !== ''){
+                if (claimantFirstName !== '') {
                     document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /> <p class="font-weight-justy request-font"> Our sincerest condolences for your loss. </p> <br /> <p class="font-weight-justy request-font"> Hi ' + claimantFirstName + '. We have reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. The policy you have provided doesn’t cover Death. </p> <br /> <p> We understand that you’re going through a tough time. For assistance, please feel free to reach out to us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div> '
                     document.getElementById("turnaround-time-ref").style.display = "none";
                     document.getElementById("payment-ref").style.display = "none";
                     allStepperActive()
-                }else {
+                } else {
                     document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /> <p class="font-weight-justy request-font"> Our sincerest condolences for your loss. </p> <br /> <p class="font-weight-justy request-font"> We have reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. The policy you have provided doesn’t cover Death. </p> <br /> <p> We understand that you’re going through a tough time. For assistance, please feel free to reach out to us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div> '
                     document.getElementById("turnaround-time-ref").style.display = "none";
                     document.getElementById("payment-ref").style.display = "none";
@@ -878,12 +878,12 @@ function setDeathClaimStatusMsg() {
                 }
             }
             else if (claimStatus.toLowerCase().trim() == 'denied2') {
-                if(claimantFirstName !== ''){
+                if (claimantFirstName !== '') {
                     document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /> <p class="font-weight-justy request-font"> Our sincerest condolences for your loss. </p> <br /> <p class="font-weight-justy request-font"> Hi ' + claimantFirstName + '. We have reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. The circumstances that led to the condition of the policy insured are not included in the provisions of policy. </p> <br /> <p> We understand that you’re going through a tough time. For assistance, please feel free to reach out to us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div>'
                     document.getElementById("turnaround-time-ref").style.display = "none";
                     document.getElementById("payment-ref").style.display = "none";
                     allStepperActive()
-                }else {
+                } else {
                     document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /> <p class="font-weight-justy request-font"> Our sincerest condolences for your loss. </p> <br /> <p class="font-weight-justy request-font"> We have reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. The circumstances that led to the condition of the policy insured are not included in the provisions of policy. </p> <br /> <p> We understand that you’re going through a tough time. For assistance, please feel free to reach out to us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div>'
                     document.getElementById("turnaround-time-ref").style.display = "none";
                     document.getElementById("payment-ref").style.display = "none";
@@ -891,12 +891,12 @@ function setDeathClaimStatusMsg() {
                 }
             }
             else if (claimStatus.toLowerCase().trim() == 'denied3') {
-                if(claimantFirstName !== ''){
+                if (claimantFirstName !== '') {
                     document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /> <p class="font-weight-justy request-font"> Our sincerest condolences for your loss. </p> <br /> <p class="font-weight-justy request-font"> Hi ' + claimantFirstName + '. We have reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. The BPI AIA policy you provided does not cover the condition for which you are claiming a benefit. </p> <br /> <p> We understand that you’re going through a tough time. For assistance, please feel free to reach out to us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div> '
                     document.getElementById("turnaround-time-ref").style.display = "none";
                     document.getElementById("payment-ref").style.display = "none";
                     allStepperActive()
-                }else {
+                } else {
                     document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /> <p class="font-weight-justy request-font"> Our sincerest condolences for your loss. </p> <br /> <p class="font-weight-justy request-font"> We have reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. The BPI AIA policy you provided does not cover the condition for which you are claiming a benefit. </p> <br /> <p> We understand that you’re going through a tough time. For assistance, please feel free to reach out to us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div> '
                     document.getElementById("turnaround-time-ref").style.display = "none";
                     document.getElementById("payment-ref").style.display = "none";
@@ -904,12 +904,12 @@ function setDeathClaimStatusMsg() {
                 }
             }
             else if (claimStatus.toLowerCase().trim() == 'denied4') {
-                if(claimantFirstName !== ''){
+                if (claimantFirstName !== '') {
                     document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /> <p class="font-weight-justy request-font"> Our sincerest condolences for your loss. </p> <br /> <p class="font-weight-justy request-font"> Hi ' + claimantFirstName + '. We have reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. The BPI AIA policy you provided and its benefits have ended due to non-payment of premium dues. </p> <br /> <p> We understand that you’re going through a tough time. For assistance, please feel free to reach out to us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div> '
                     document.getElementById("turnaround-time-ref").style.display = "none";
                     document.getElementById("payment-ref").style.display = "none";
                     allStepperActive()
-                }else {
+                } else {
                     document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /> <p class="font-weight-justy request-font"> Our sincerest condolences for your loss. </p> <br /> <p class="font-weight-justy request-font"> We have reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. The BPI AIA policy you provided and its benefits have ended due to non-payment of premium dues. </p> <br /> <p> We understand that you’re going through a tough time. For assistance, please feel free to reach out to us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div> '
                     document.getElementById("turnaround-time-ref").style.display = "none";
                     document.getElementById("payment-ref").style.display = "none";
@@ -919,18 +919,18 @@ function setDeathClaimStatusMsg() {
         }
     }
     else if (isFallout.toLowerCase() == 'n') {
-        if (docsPending == 'y' && docsReceived == 'n'  && claimStatus == 'received') {
+        if (docsPending == 'y' && docsReceived == 'n' && claimStatus == 'received') {
             var finalDocsList = '';
             requirementsList.forEach(function (item) {
                 finalDocsList = finalDocsList + '<div style="display: flex;align-items: center; padding-bottom: 1px;"> <div id="outer-circle"> <div id="inner-circle"></div> </div> <p style="padding-left:7px">' + ' ' + item.name + '</p> </div>'
 
             });
-            if(claimantFirstName !== ''){
+            if (claimantFirstName !== '') {
                 document.getElementById('claim-msg-text').innerHTML = '<div > <h3>YOUR OTHER CLAIMS DOCUMENTS</h3> <br /> <p class="font-weight-justy request-font"> Hi ' + claimantFirstName + '. We have reviewed your initial claim request submission and need the documents listed below to proceed with the assessment: </p> <br /> <p class="font-weight-normal request-font"> <div style="padding-left: 10px;"> ' + finalDocsList + ' </div> </p> <br /> <p> Don&#39;t worry, you can easily submit scanned copies of these documents via e-mail at BPIAIA.customerservice@aia.com so we can proceed with your claim request. </p > <br /> </div > ';
                 document.getElementById("turnaround-time-ref").style.display = "block";
                 document.getElementById("payment-ref").style.display = "none";
                 twoStepperActive();
-            }else {
+            } else {
                 document.getElementById('claim-msg-text').innerHTML = '<div > <h3>YOUR OTHER CLAIMS DOCUMENTS</h3> <br /> <p class="font-weight-justy request-font"> We have reviewed your initial claim request submission and need the documents listed below to proceed with the assessment: </p> <br /> <p class="font-weight-normal request-font"> <div style="padding-left: 10px;"> ' + finalDocsList + ' </div> </p> <br /> <p> Don&#39;t worry, you can easily submit scanned copies of these documents via e-mail at BPIAIA.customerservice@aia.com so we can proceed with your claim request. </p > <br /> </div > ';
                 document.getElementById("turnaround-time-ref").style.display = "block";
                 document.getElementById("payment-ref").style.display = "none";
@@ -965,12 +965,12 @@ function setDeathClaimStatusMsg() {
                 allStepperActive()
             }
             else if (claimStatus.toLowerCase().trim() == 'denied1') {
-                if(claimantFirstName !== ''){
+                if (claimantFirstName !== '') {
                     document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /><p class="font-weight-justy request-font"> Hi ' + claimantFirstName + '. We reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. The BPI AIA policy contract does not have Death coverage. </p> <br /> <p class="font-weight-normal request-font"> We are sorry that this news is coming to you at a tough time, ' + claimantFirstName + '. If you wish to discuss the details of your claim, you may reach out to your Bancassurance Sales Executive or chat with Bessie at  <a href="https://m.me/BessieofBPIAIA " target="_blank">https://m.me/BessieofBPIAIA</a>. You may also email us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div> '
                     document.getElementById("turnaround-time-ref").style.display = "none";
                     document.getElementById("payment-ref").style.display = "none";
                     allStepperActive()
-                }else {
+                } else {
                     document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /><p class="font-weight-justy request-font"> We reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. The BPI AIA policy contract does not have Death coverage. </p> <br /> <p class="font-weight-normal request-font"> We are sorry that this news is coming to you at a tough time. If you wish to discuss the details of your claim, you may reach out to your Bancassurance Sales Executive or chat with Bessie at  <a href="https://m.me/BessieofBPIAIA " target="_blank">https://m.me/BessieofBPIAIA</a>. You may also email us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div> '
                     document.getElementById("turnaround-time-ref").style.display = "none";
                     document.getElementById("payment-ref").style.display = "none";
@@ -978,12 +978,12 @@ function setDeathClaimStatusMsg() {
                 }
             }
             else if (claimStatus.toLowerCase().trim() == 'denied2') {
-                if(claimantFirstName !== ''){
+                if (claimantFirstName !== '') {
                     document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /><p class="font-weight-justy request-font"> Hi ' + claimantFirstName + '. We reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. The circumstances that led to the claim are not included in the provisions of the BPI AIA policy. </p> <br /> <p class="font-weight-normal request-font"> We are sorry that this news is coming to you at a tough time, ' + claimantFirstName + '. If you wish to discuss the details of your claim, you may reach out to your Bancassurance Sales Executive or chat with Bessie at  <a href="https://m.me/BessieofBPIAIA " target="_blank">https://m.me/BessieofBPIAIA</a>. You may also email us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div> '
                     document.getElementById("turnaround-time-ref").style.display = "none";
                     document.getElementById("payment-ref").style.display = "none";
                     allStepperActive()
-                }else {
+                } else {
                     document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /><p class="font-weight-justy request-font"> We reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. The circumstances that led to the claim are not included in the provisions of the BPI AIA policy. </p> <br /> <p class="font-weight-normal request-font"> We are sorry that this news is coming to you at a tough time. If you wish to discuss the details of your claim, you may reach out to your Bancassurance Sales Executive or chat with Bessie at  <a href="https://m.me/BessieofBPIAIA " target="_blank">https://m.me/BessieofBPIAIA</a>. You may also email us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div> '
                     document.getElementById("turnaround-time-ref").style.display = "none";
                     document.getElementById("payment-ref").style.display = "none";
@@ -991,12 +991,12 @@ function setDeathClaimStatusMsg() {
                 }
             }
             else if (claimStatus.toLowerCase().trim() == 'denied3') {
-                if(claimantFirstName !== ''){
+                if (claimantFirstName !== '') {
                     document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /><p class="font-weight-justy request-font"> Hi ' + claimantFirstName + '. We reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. The circumstances that led to the claim are not included in the provisions of the BPI AIA policy. </p> <br /> <p class="font-weight-normal request-font"> We are sorry that this news is coming to you at a tough time, ' + claimantFirstName + '. If you wish to discuss the details of your claim, you may reach out to your Bancassurance Sales Executive or chat with Bessie at  <a href="https://m.me/BessieofBPIAIA " target="_blank">https://m.me/BessieofBPIAIA</a>. You may also email us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div> '
                     document.getElementById("turnaround-time-ref").style.display = "none";
                     document.getElementById("payment-ref").style.display = "none";
                     allStepperActive()
-                }else {
+                } else {
                     document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /><p class="font-weight-justy request-font"> We reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. The circumstances that led to the claim are not included in the provisions of the BPI AIA policy. </p> <br /> <p class="font-weight-normal request-font"> We are sorry that this news is coming to you at a tough time. If you wish to discuss the details of your claim, you may reach out to your Bancassurance Sales Executive or chat with Bessie at <a href="https://m.me/BessieofBPIAIA " target="_blank">https://m.me/BessieofBPIAIA</a>. You may also email us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div> '
                     document.getElementById("turnaround-time-ref").style.display = "none";
                     document.getElementById("payment-ref").style.display = "none";
@@ -1004,12 +1004,12 @@ function setDeathClaimStatusMsg() {
                 }
             }
             else if (claimStatus.toLowerCase().trim() == 'denied4') {
-                if(claimantFirstName !== ''){
+                if (claimantFirstName !== '') {
                     document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /><p class="font-weight-justy request-font"> Hi ' + claimantFirstName + '. We reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. Your poliyc&#39;s coverage and all its benefits have ended last ' + lapsationDate + ' due to non-payment of premium. </p> <br /> <p class="font-weight-normal request-font"> We are sorry that this news is coming to you at a tough time, ' + claimantFirstName + '. If you wish to discuss the details of your claim, you may reach out to your Bancassurance Sales Executive or chat with Bessie at  <a href="https://m.me/BessieofBPIAIA " target="_blank">https://m.me/BessieofBPIAIA</a>. You may also email us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div> '
                     document.getElementById("turnaround-time-ref").style.display = "none";
                     document.getElementById("payment-ref").style.display = "none";
                     allStepperActive()
-                }else {
+                } else {
                     document.getElementById('claim-msg-text').innerHTML = '<div > <h3>AN UPDATE ON YOUR CLAIM REQUEST</h3> <br /><p class="font-weight-justy request-font"> We reviewed the documents you submitted and we regret to inform you that we are unable to grant your claim request. Your poliyc&#39;s coverage and all its benefits have ended last ' + lapsationDate + ' due to non-payment of premium. </p> <br /> <p class="font-weight-normal request-font"> We are sorry that this news is coming to you at a tough time. If you wish to discuss the details of your claim, you may reach out to your Bancassurance Sales Executive or chat with Bessie at  <a href="https://m.me/BessieofBPIAIA " target="_blank">https://m.me/BessieofBPIAIA</a>. You may also email us at BPIAIA.customerservice@aia.com or call us at (02) 8528-5501. </p> <br /> </div> '
                     document.getElementById("turnaround-time-ref").style.display = "none";
                     document.getElementById("payment-ref").style.display = "none";
@@ -1103,7 +1103,7 @@ function twoStepperActive() {
 function trackProgressDropDown(trackMessagesArr) {
     var disbMsg;
     if (disbursementType?.toLowerCase() == 'cta') {
-        disbMsg='Bank Transfer'
+        disbMsg = 'Bank Transfer'
     }
     else if (disbursementType?.toLowerCase() == 'pua') {
         disbMsg = 'Pick Up Anywhere'
@@ -1112,11 +1112,11 @@ function trackProgressDropDown(trackMessagesArr) {
     final_progress_result = '<div class="step step-active"><div><div class="circle " id="circle2"><i class="fa fa-check" ></i ></div ></div><div><div class="title">' + progress_msges[0]['msg'] + claim_type.toLowerCase() + ' claim.' + '</div></div></div>' +
         '<div class="step step-active"><div><div class="circle " id="circle2"><i class="fa fa-check" ></i ></div ></div><div><div class="title">' + progress_msges[1]['msg'] + '</div></div></div>' +
         (claim_type == 'accident' || claim_type == 'illness' ?
-        '<div class="step step-active"><div><div class="circle " id="circle2"><i class="fa fa-check" ></i ></div ></div><div><div class="title">' + 'You have chosen ' + disbMsg + ' as a preferred payout method' + '</div></div></div>' :
-            beneficiaryCount == 1 ?
             '<div class="step step-active"><div><div class="circle " id="circle2"><i class="fa fa-check" ></i ></div ></div><div><div class="title">' + 'You have chosen ' + disbMsg + ' as a preferred payout method' + '</div></div></div>' :
+            beneficiaryCount == 1 ?
+                '<div class="step step-active"><div><div class="circle " id="circle2"><i class="fa fa-check" ></i ></div ></div><div><div class="title">' + 'You have chosen ' + disbMsg + ' as a preferred payout method' + '</div></div></div>' :
                 '<div class="step step-active"><div><div class="circle " id="circle2"><i class="fa fa-check" ></i ></div ></div><div><div class="title">' + 'You have chosen your preferred payout methods.' + '</div></div></div>')
-        + (claimStatus.toLowerCase() == 'received' || claimStatus.toLowerCase() == 'approved' || claimStatus.toLowerCase() == 'received' || claimStatus.toLowerCase() == 'approved' || claimStatus.toLowerCase() == 'received' || claimStatus.toLowerCase() == 'approved' || claimStatus.toLowerCase() == 'denied1' || claimStatus.toLowerCase() == 'denied2' || claimStatus.toLowerCase() == 'denied3' || claimStatus.toLowerCase() == 'denied4'?
+        + (claimStatus.toLowerCase() == 'received' || claimStatus.toLowerCase() == 'approved' || claimStatus.toLowerCase() == 'received' || claimStatus.toLowerCase() == 'approved' || claimStatus.toLowerCase() == 'received' || claimStatus.toLowerCase() == 'approved' || claimStatus.toLowerCase() == 'denied1' || claimStatus.toLowerCase() == 'denied2' || claimStatus.toLowerCase() == 'denied3' || claimStatus.toLowerCase() == 'denied4' ?
             '<div class="step step-active"><div><div class="circle " id="circle2"><i class="fa fa-check" ></i ></div ></div><div><div class="title">' + progress_msges[4]['msg'] + '</div></div></div>' : '') +
         (docsPending.toLowerCase() == 'y' && docsReceived.toLowerCase() == 'n' ?
             '<div class="step step-active"><div><div class="circle " id="circle2"><i class="fa fa-check" ></i ></div ></div><div><div class="title">' + progress_msges[5]['msg'] + '</div></div></div>' :
@@ -1129,9 +1129,9 @@ function trackProgressDropDown(trackMessagesArr) {
         + (claimStatus == 'approved' ?
             '<div class="step step-active"><div><div class="circle " id="circle2"><i class="fa fa-check" ></i ></div ></div><div><div class="title">' + progress_msges[8]['msg'] + '</div></div></div>' + '<div class="step step-active"><div><div class="circle " id="circle2"><i class="fa fa-check" ></i ></div ></div><div><div class="title">' + progress_msges[11]['msg'] + '</div></div></div>' :
             '')
-        // + (claimStatus == 'approved' && disbursementType == 'CTA' && beneficiaryCount == 1  ?
-        //     '<div class="step step-active"><div><div class="circle " id="circle2"><i class="fa fa-check" ></i ></div ></div><div><div class="title">' + progress_msges[12]['msg'] + '</div></div></div>'
-        //     : claimStatus == 'approved' && disbursementType == 'PUA' && beneficiaryCount == 1 ? '<div class="step step-active"><div><div class="circle " id="circle2"><i class="fa fa-check" ></i ></div ></div><div><div class="title">' + progress_msges[9]['msg'] + '</div></div></div>' : '')
+    // + (claimStatus == 'approved' && disbursementType == 'CTA' && beneficiaryCount == 1  ?
+    //     '<div class="step step-active"><div><div class="circle " id="circle2"><i class="fa fa-check" ></i ></div ></div><div><div class="title">' + progress_msges[12]['msg'] + '</div></div></div>'
+    //     : claimStatus == 'approved' && disbursementType == 'PUA' && beneficiaryCount == 1 ? '<div class="step step-active"><div><div class="circle " id="circle2"><i class="fa fa-check" ></i ></div ></div><div><div class="title">' + progress_msges[9]['msg'] + '</div></div></div>' : '')
     document.getElementById('progs-status').innerHTML = final_progress_result
 
     //--before integration--//
@@ -1303,16 +1303,16 @@ function submit_survey(event) {
     }), '*');
     window.addEventListener('message', function (eventData) {
 
-       
+
         // console.log(event.data.event_code)
         try {
 
             if (eventData.data) {
-             
+
                 // console.log(event)
                 let event = JSON.parse(eventData.data);
                 if (event.event_code == 'surveryResponse') { //sucess
-                   
+
                     console.log("receiving survey event in acc")
                     if (event.data.returnCode == '0' || event.data.retCode == '0') {
                         var nodes = document.getElementById("customer_survey").getElementsByTagName('*');

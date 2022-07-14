@@ -1043,7 +1043,7 @@
                                             order to improve the
                                             quality of service the Company provides, and to receive such marketing
                                             campaigns.
-                                           
+
                                         </p>
                                         <p id="err_privacy_consent1" class="error" style="margin-left: 5rem"></p>
                                     </div>
@@ -1386,7 +1386,8 @@
                         <div class="row">
                             <div class="col-9">
                                 <p id="customer_Name" class="font-weight-normal">Hi Alex. Hang in there as we process
-                                    your request. Expect an SMS from us within 7 to 10 working days on the status of your
+                                    your request. Expect an SMS from us within 7 to 10 working days on the status of
+                                    your
                                     request.
                                 </p>
                                 <br />
@@ -1396,7 +1397,10 @@
                                 </p>
                                 <br />
                                 <p class="font-weight-normal">
-                                    Need assistance? Chat with Bessie at <a href="https://m.me/BessieofBPIAIA " target="_blank">https://m.me/BessieofBPIAIA</a> or email us at BPIAIA.customerservice@aia.com. You may also call our Customer Hotline at (02) 8528-5501.
+                                    Need assistance? Chat with Bessie at <a href="https://m.me/BessieofBPIAIA "
+                                        target="_blank">https://m.me/BessieofBPIAIA</a> or email us at
+                                    BPIAIA.customerservice@aia.com. You may also call our Customer Hotline at (02)
+                                    8528-5501.
                                 </p>
                             </div>
                             <div class="col-3 time_container">
@@ -1514,7 +1518,7 @@
                                                         Upload<input type="file" id="proof_BAO" />
                                                         <span id="file_Upload_Tick_6"
                                                             class="upload_btn_span">&#10004;</span>
-                                                        <span id="file_loader_icon_6" class="loader"></span>
+                                                        <span id="file_loader_icon_6" class="loader3"></span>
                                                         <span id="file_upload_cancle_6"
                                                             class="upload_btn_span">&#10006;</span>
                                                     </span>
@@ -1595,7 +1599,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        <!-- </button><button id='submit9_waiting_btn' type="button"
+                                                            <!-- </button><button id='submit9_waiting_btn' type="button"
                                                             class="btn btn-danger"
                                                             style="width: 100%; margin: 3rem 0;padding: 0;display: none"><span
                                                                 class="loading"></span></button> -->
@@ -1852,8 +1856,9 @@
                                         style="align-self: flex-end; color: #b8123e; padding: 0 1rem; margin: 0 0.5rem 0.7rem 0.5rem;">Back</a>
                                     <div class="popup" style="width: 90%;">
                                         <button id="pick_up_btn" type="submit" onclick="pickup_Bpi()" class="btn"
-                                            style="width: 100%;"><span id='msg' style="color:white">YES, I WOULD LIKE TO PICK UP MY BENEFIT THROUGH
-                                            BPI</span>
+                                            style="width: 100%;"><span id='msg' style="color:white">YES, I WOULD LIKE TO
+                                                PICK UP MY BENEFIT THROUGH
+                                                BPI</span>
                                             <div class="loader1" id="spin_loader_1" style="float: none;margin: 0 auto;">
                                                 <div class="loader-bg">
                                                     <div class="text"></div>
@@ -1879,7 +1884,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        <!-- </button><button id='pick_up_btn_waiting' type="button" class="btn btn-danger"
+                                            <!-- </button><button id='pick_up_btn_waiting' type="button" class="btn btn-danger"
                                             style="width: 100%;padding-left: 50px;padding-right: 50px;display: none"><span
                                                 class="loading"></span></button> -->
                                     </div>
@@ -1909,6 +1914,23 @@
                 </div>
         </section>
 
+        <section class="hide modal fade" id="popUpPUACTA" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p id="p1">If your total benefit amount is more than Php 500,000, please use the Bank Transfer
+                            option as your payment disbursement option.
+                        </p><br>
+                        <p id="p1">Important Note! We cannot accommodate any request to split the benefit amount across
+                            different disbursement options.
+                        </p>
+                    </div>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="width: 50%; margin: 0 auto 3rem auto;">Ok</button>
+                </div>
+        </section>
+
         <!-- fallbackMessage-->
         <section class="hide modal fade" id="fallbackMessagePopUp" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
@@ -1916,8 +1938,8 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <!-- <p>Error</p> -->
-                        <button type="button" class="close" aria-label="Close" style="text-align: right;padding:12px"><span
-                                aria-hidden="true">&times;</span></button><br>
+                        <button type="button" class="close" aria-label="Close"
+                            style="text-align: right;padding:12px"><span aria-hidden="true">&times;</span></button><br>
                         <p style="text-align: center;padding-bottom: 9px;" id="fallbackMessage">
                         </p>
                     </div>
@@ -1926,6 +1948,21 @@
                 </div>
         </section>
         <!--  fallbackMessage-->
+
+        <!-- <section class="hide modal fade" id="popUpPUA" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                       
+                        <button type="button" class="close" aria-label="Close" style="text-align: right;padding:12px"><span
+                                aria-hidden="true">&times;</span></button><br>
+                        <p style="text-align: center;padding-bottom: 9px;" id="fallbackMessage">
+                        </p>
+                    </div>
+                 
+                </div>
+        </section> -->
         <!-- invalid return code-->
         <section class="hide modal fade" id="invalidReturnCode" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
@@ -1963,7 +2000,7 @@
                         <button type="button" class="close" aria-label="Close"
                             style="text-align: right;padding:12px"><span aria-hidden="true"
                                 onclick="closeModal()">&times;</span></button><br>
-                       <!--- <p id="otp-text">We have sent a One-Time PIN to your
+                        <!--- <p id="otp-text">We have sent a One-Time PIN to your
                             <br> mobile number <span id="user_mobile"></span>.
                             <br> Kindly enter the OTP in the space below.
                         </p>
@@ -1979,16 +2016,6 @@
                             <br> our hotline at (02)8528-5501.
                         </p>  -->
 
-
-                        <!-- <p id="otp-text">We have sent a One-Time PIN to your
-                            <br> mobile number <span id="user_mobile"></span>.
-                            <br> Kindly enter the OTP in the space below.
-                        </p>
-                        <p id="otp-text">Your OTP expires after two minutes. Click <a style="color:#1b89f0 ;cursor: pointer;" onclick="resendOtp('resend')">here</a> to resend a new one.
-                        </p>
-                        <p id="otp-text">If your current mobile number does not match our records, kindly update your contact details via <a href="https://wwwuat.bpi-aia.com.ph/en/help-support/contact-info-update.html" target="_blank" style="color:#1b89f0 ;cursor: pointer;" target="_blank">ePlan</a>  or by calling our hotline at (02) 8528-5501.
-                        </p>  -->
-
                         <p id="otp-text">We sent a One-Time PIN to your registered
                             <br> mobile number <span id="user_mobile"></span>.
                             <br> Please enter the 6-digit PIN in the space below.
@@ -1997,27 +2024,14 @@
                         </p>
                         <p id="otp-text">Didn’t get the code? Please check --
                             <br>If you’re in an area with strong mobile coverage to receive the SMS.
-                            <br> If your current mobile number matches what we have on record. To update it, click<a href="https://wwwuat.bpi-aia.com.ph/en/help-support/contact-info-update.html" target="_blank" style="color:#1b89f0 ;cursor: pointer;"> here</a> 
+                            <br> If your current mobile number matches what we have on record. To update it, click<a
+                                href="https://wwwuat.bpi-aia.com.ph/en/help-support/contact-info-update.html"
+                                target="_blank" style="color:#1b89f0 ;cursor: pointer;"> here</a>
                             <br><br> Click
                             <a style="color:#1b89f0 ;cursor: pointer;" onclick="resendOtp('resend')">here</a> to
                             resend
-                        
-                        </p>
 
-                        <!-- <p id="otp-text">We sent a One-Time PIN to your registered
-                            <br> mobile number <span id="user_mobile"></span>.
-                            <br> Please enter the 6-digit PIN in the space below.
                         </p>
-                        <p id="otp-text">Your OTP expires after two minutes. Input the code you receive immediately.
-                        </p>
-                        <p id="otp-text">Didn’t get the code? Please check --
-                            <br>If you’re in an area with strong mobile coverage to receive the SMS.
-                            <br> If your current mobile number matches what we have on record. To update it, <a href="https://wwwuat.bpi-aia.com.ph/en/help-support/contact-info-update.html" target="_blank" style="color:#1b89f0 ;cursor: pointer;">click here</a> 
-                            <br><br> Click
-                            <a style="color:#1b89f0 ;cursor: pointer;" onclick="resendOtp('resend')">here</a> to
-                            resend
-                        
-                        </p> -->
                         <br>
                         <input type="text" class="input__box" maxlength="25" id="otp" value="" placeholder="OTP"
                             tabindex="1" />
@@ -2122,8 +2136,8 @@
 
                     </div>
                     <br>
-                    <button type="button" class="btn btn-danger" 
-                        style="width: 50%; margin: 0 auto 3rem auto;" onclick="backToFileClaim()">Exit</button>
+                    <button type="button" class="btn btn-danger" style="width: 50%; margin: 0 auto 3rem auto;"
+                        onclick="backToFileClaim()">Exit</button>
                 </div>
 
             </div>
@@ -2154,7 +2168,8 @@
         <!-- Max Invalid Otp modal (drop-2 ) -->
         <div id="cover-spin"></div>
     </main>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script> -->

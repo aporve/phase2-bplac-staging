@@ -178,7 +178,8 @@
                                 style="padding-top: 31px; padding-left: 6px;padding-right: 6px;">
                                 <input type="text" class="form-control" id="reference_number" maxlength="10"
                                     placeholder="Reference Number" aria-label="Recipient's username"
-                                    aria-describedby="basic-addon2" style=" max-width: 602px; height: 62px;" onkeypress="return isNumber(event) && checkSpcialChar(event) && checkLength(event, 10)">
+                                    aria-describedby="basic-addon2" style=" max-width: 602px; height: 62px;"
+                                    onkeypress="return isNumber(event) && checkSpcialChar(event) && checkLength(event, 10)">
                                 <div class="input-group-append">
                                     <button onclick="captcha()" class="input-group-text" id="go-btn"
                                         style="width: 82px; background-color: #b8123e !important; cursor: pointer;justify-content: center;">
@@ -981,34 +982,36 @@
             </div>
     </section>
     <!-- no data found modal-->
-        <!-- invalid return code-->
-        <section class="hide modal fade" id="invalidReturnCode" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <p style="text-align: center;" id="returnMessage">
-                        </p>
-                    </div>
-                    <button type="button" class="btn btn-danger" style="width: 50%; margin: 0 auto 3rem auto;"
-                        onclick="backToFileClaim()">Ok</button>
+    <!-- invalid return code-->
+    <section class="hide modal fade" id="invalidReturnCode" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p style="text-align: center;" id="returnMessage">
+                    </p>
                 </div>
-        </section>
-        <section class="hide modal fade" id="successfullSurvey" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <p style="text-align: center;" id="surveySuccessMsg">Thank you for your time in responding to our survey.
-                        </p>
-                    </div>
-                    <button type="button" class="btn btn-danger" style="width: 50%; margin: 0 auto 3rem auto;"
-                        data-dismiss="modal">Ok</button>
+                <button type="button" class="btn btn-danger" style="width: 50%; margin: 0 auto 3rem auto;"
+                    onclick="backToFileClaim()">Ok</button>
+            </div>
+    </section>
+    <section class="hide modal fade" id="successfullSurvey" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p style="text-align: center;" id="surveySuccessMsg">Thank you for your time in responding to our
+                        survey.
+                    </p>
                 </div>
-        </section>
+                <button type="button" class="btn btn-danger" style="width: 50%; margin: 0 auto 3rem auto;"
+                    data-dismiss="modal">Ok</button>
+            </div>
+    </section>
     <div id="cover-spin"></div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script> -->

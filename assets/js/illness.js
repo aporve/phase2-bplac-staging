@@ -1729,17 +1729,17 @@ file6.onchange = async function (e) {
                     $("#file_Upload_Tick_6").hide();
                     $("#file_upload_cancle_6").show();
                     $("#upload_warning").text(
-                      "Your file seems to be empty. Please check your file and its contents, then re-upload to proceed. Note: You may only upload documents not exceeding 5MB in size."
+                        "Your file seems to be empty. Please check your file and its contents, then re-upload to proceed. Note: You may only upload documents not exceeding 5MB in size."
                     );
-                  } else {
+                } else {
                     $("#warning_parent").show();
                     $("#file_loader_icon_6").hide();
                     $("#file_Upload_Tick_6").hide();
                     $("#file_upload_cancle_6").show();
                     $("#upload_warning").text(
-                      "The file size of your documents should not be larger than 5MB. Please re-upload the correct file size to proceed."
+                        "The file size of your documents should not be larger than 5MB. Please re-upload the correct file size to proceed."
                     );
-                  }
+                }
             }
             break;
         default:
@@ -1809,17 +1809,17 @@ file7.onchange = async function (e) {
                     $("#file_Upload_Tick_7").hide();
                     $("#file_upload_cancle_7").show();
                     $("#upload_warning").text(
-                      "Your file seems to be empty. Please check your file and its contents, then re-upload to proceed. Note: You may only upload documents not exceeding 5MB in size."
+                        "Your file seems to be empty. Please check your file and its contents, then re-upload to proceed. Note: You may only upload documents not exceeding 5MB in size."
                     );
-                  } else {
+                } else {
                     $("#warning_parent").show();
                     $("#file_loader_icon_7").hide();
                     $("#file_Upload_Tick_7").hide();
                     $("#file_upload_cancle_7").show();
                     $("#upload_warning").text(
-                      "The file size of your documents should not be larger than 5MB. Please re-upload the correct file size to proceed."
+                        "The file size of your documents should not be larger than 5MB. Please re-upload the correct file size to proceed."
                     );
-                  }
+                }
             }
             break;
         default:

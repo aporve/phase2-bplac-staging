@@ -475,7 +475,7 @@ function preSubmitCall() {
       }),
       "*"
     )
-    timer(2, 30).then(async () => {})
+    timer(2, 30).then(async () => { })
   })
   otpTimerFunction()
   window.addEventListener("message", function (eventData) {
@@ -569,7 +569,7 @@ function finalSubmitCall() {
           //sucess
           clearTimeout(cleartime)
           console.log("upload success event received")
-          timer(75, 85).then(async () => {})
+          timer(75, 85).then(async () => { })
         } else {
           // $("#popUp").modal("show");
         }
@@ -1126,34 +1126,34 @@ function handleFormAddBeneficiary(event) {
 
     let beneficiary = {}
 
-    ;(beneficiary["beneficiaryNo"] = beneficiaryCount.toString()),
-      (beneficiary["firstName"] = field_addBeneficiaryFirstName.toUpperCase()),
-      (beneficiary["middleName"] = field_addBeneficiaryMiddleName.toUpperCase()),
-      (beneficiary["lastName"] = field_addBeneficiaryLastName.toUpperCase()),
-      (beneficiary["dateOfBirth"] = field_addBeneficiaryDOB.split("-")[1] + "/" + field_addBeneficiaryDOB.split("-")[2] + "/" + field_addBeneficiaryDOB.split("-")[0]),
-      (beneficiary["countryCode"] = $("select#field_addBeneficiaryMobileNumberSelect option").filter(":selected").val()),
-      (beneficiary["phoneNumber"] = field_addBeneficiaryMobileNum),
-      (beneficiary["emailAddress"] = field_addBeneficiaryEmailAddress),
-      (beneficiary["homeAddress"] = field_addBeneficiaryHomeAddress),
-      (beneficiary["placeOfBirth"] = field_addBeneficiaryPOB),
-      (beneficiary["nationality"] = field_addBeneficiaryNationality),
-      (beneficiary["sex"] = field_addBeneficiarySex),
-      (beneficiary["relationship"] = field_addBeneficiaryRelationToDeceased),
-      // beneficiary["documentFolder"] = `/CLAIMS/BPLAC/${referenceNumber}`,
-      (beneficiary["payoutOption"] = payoutOption),
-      (beneficiary["employer"] = field_addBeneficiaryEmployerName),
-      (beneficiary["governmentOfficial"] = field_addBeneficiary_relatives1),
-      (beneficiary["governmentOfficialRelative"] = field_add_Beneficiary_add_relatives2),
-      (beneficiary["occupation"] = field_addBeneficiaryOccupation),
-      (beneficiary["check1"] = dataBen.privacy_consent_beneficiary_1),
-      (beneficiary["check2"] = dataBen.privacy_consent_beneficiary_2)
+      ; (beneficiary["beneficiaryNo"] = beneficiaryCount.toString()),
+        (beneficiary["firstName"] = field_addBeneficiaryFirstName.toUpperCase()),
+        (beneficiary["middleName"] = field_addBeneficiaryMiddleName.toUpperCase()),
+        (beneficiary["lastName"] = field_addBeneficiaryLastName.toUpperCase()),
+        (beneficiary["dateOfBirth"] = field_addBeneficiaryDOB.split("-")[1] + "/" + field_addBeneficiaryDOB.split("-")[2] + "/" + field_addBeneficiaryDOB.split("-")[0]),
+        (beneficiary["countryCode"] = $("select#field_addBeneficiaryMobileNumberSelect option").filter(":selected").val()),
+        (beneficiary["phoneNumber"] = field_addBeneficiaryMobileNum),
+        (beneficiary["emailAddress"] = field_addBeneficiaryEmailAddress),
+        (beneficiary["homeAddress"] = field_addBeneficiaryHomeAddress),
+        (beneficiary["placeOfBirth"] = field_addBeneficiaryPOB),
+        (beneficiary["nationality"] = field_addBeneficiaryNationality),
+        (beneficiary["sex"] = field_addBeneficiarySex),
+        (beneficiary["relationship"] = field_addBeneficiaryRelationToDeceased),
+        // beneficiary["documentFolder"] = `/CLAIMS/BPLAC/${referenceNumber}`,
+        (beneficiary["payoutOption"] = payoutOption),
+        (beneficiary["employer"] = field_addBeneficiaryEmployerName),
+        (beneficiary["governmentOfficial"] = field_addBeneficiary_relatives1),
+        (beneficiary["governmentOfficialRelative"] = field_add_Beneficiary_add_relatives2),
+        (beneficiary["occupation"] = field_addBeneficiaryOccupation),
+        (beneficiary["check1"] = dataBen.privacy_consent_beneficiary_1),
+        (beneficiary["check2"] = dataBen.privacy_consent_beneficiary_2)
     BeneficiaryList.push(beneficiary)
 
     // $("#customer_Name").text(`Hi ${customName}. Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request.`)
     console.log('beneficiaryCount 1153---', beneficiaryCount);
     if (beneficiaryCount == 1) {
       $("#customer_Name").text(`Hi ${customName}. Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request.`)
-    }else {
+    } else {
       $("#customer_Name").text(`Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request.`)
     }
     if (buttonCount == 1) {
@@ -1707,28 +1707,28 @@ function handleForm(event) {
 
     let beneficiary = {}
 
-    ;(beneficiary["beneficiaryNo"] = beneficiaryCount.toString()),
-      (beneficiary["firstName"] = field_BeneficiaryFirstName.toUpperCase()),
-      (beneficiary["middleName"] = field_BeneficiaryMiddleName.toUpperCase()),
-      (beneficiary["lastName"] = field_BeneficiaryLastName.toUpperCase()),
-      (beneficiary["dateOfBirth"] = field_BeneficiaryDOB.split("-")[1] + "/" + field_BeneficiaryDOB.split("-")[2] + "/" + field_BeneficiaryDOB.split("-")[0]),
-      (beneficiary["countryCode"] = $("select#field_BeneficiaryMobileNumberSelect option").filter(":selected").val()),
-      (beneficiary["phoneNumber"] = field_BeneficiaryMobileNum),
-      (beneficiary["emailAddress"] = field_BeneficiaryEmailAddress),
-      (beneficiary["homeAddress"] = field_BeneficiaryHomeAddress),
-      (beneficiary["placeOfBirth"] = field_BeneficiaryPOB),
-      (beneficiary["nationality"] = field_BeneficiaryNationality),
-      (beneficiary["sex"] = $("select#field_BeneficiarySex option").filter(":selected").val()),
-      (beneficiary["relationship"] = field_BeneficiaryRelationToDeceased),
-      // beneficiary["documentFolder"] = `/CLAIMS/BPLAC/${referenceNumber}`,
-      (beneficiary["payoutOption"] = payoutOption),
-      (beneficiary["employer"] = field_BeneficiaryEmployerName),
-      (beneficiary["governmentOfficial"] = $("select#field_Beneficiary_relatives1 option").filter(":selected").val()),
-      (beneficiary["governmentOfficialRelative"] = $("select#field_Beneficiary_relatives2 option").filter(":selected").val()),
-      (beneficiary["occupation"] = field_BenificiaryOccupation),
-      (beneficiary["check1"] = data.privacy_consent_1),
-      (beneficiary["check2"] = data.privacy_consent_2),
-      BeneficiaryList.push(beneficiary)
+      ; (beneficiary["beneficiaryNo"] = beneficiaryCount.toString()),
+        (beneficiary["firstName"] = field_BeneficiaryFirstName.toUpperCase()),
+        (beneficiary["middleName"] = field_BeneficiaryMiddleName.toUpperCase()),
+        (beneficiary["lastName"] = field_BeneficiaryLastName.toUpperCase()),
+        (beneficiary["dateOfBirth"] = field_BeneficiaryDOB.split("-")[1] + "/" + field_BeneficiaryDOB.split("-")[2] + "/" + field_BeneficiaryDOB.split("-")[0]),
+        (beneficiary["countryCode"] = $("select#field_BeneficiaryMobileNumberSelect option").filter(":selected").val()),
+        (beneficiary["phoneNumber"] = field_BeneficiaryMobileNum),
+        (beneficiary["emailAddress"] = field_BeneficiaryEmailAddress),
+        (beneficiary["homeAddress"] = field_BeneficiaryHomeAddress),
+        (beneficiary["placeOfBirth"] = field_BeneficiaryPOB),
+        (beneficiary["nationality"] = field_BeneficiaryNationality),
+        (beneficiary["sex"] = $("select#field_BeneficiarySex option").filter(":selected").val()),
+        (beneficiary["relationship"] = field_BeneficiaryRelationToDeceased),
+        // beneficiary["documentFolder"] = `/CLAIMS/BPLAC/${referenceNumber}`,
+        (beneficiary["payoutOption"] = payoutOption),
+        (beneficiary["employer"] = field_BeneficiaryEmployerName),
+        (beneficiary["governmentOfficial"] = $("select#field_Beneficiary_relatives1 option").filter(":selected").val()),
+        (beneficiary["governmentOfficialRelative"] = $("select#field_Beneficiary_relatives2 option").filter(":selected").val()),
+        (beneficiary["occupation"] = field_BenificiaryOccupation),
+        (beneficiary["check1"] = data.privacy_consent_1),
+        (beneficiary["check2"] = data.privacy_consent_2),
+        BeneficiaryList.push(beneficiary)
 
     /*  dataReset("field_firstName", "field_firstName", "field_middleName", "field_lastName", "field_lastName_Suffix", "field_DOB", "field_DOID", "field_BeneficiaryFirstName", "field_BeneficiaryMiddleName", "field_BeneficiaryLastName", "field_BeneficiaryMobileNum", "field_BeneficiaryEmailAddress", "field_BeneficiaryHomeAddress", "field_BeneficiaryDOB", "field_BeneficiaryPOB", "field_BeneficiaryNationality", "field_BeneficiarySex", "field_BeneficiaryRelationToDeceased", "field_Beneficiary_relatives1", "field_Beneficiary_relatives2") */
 
@@ -1740,9 +1740,9 @@ function handleForm(event) {
     $("#payment").show()
     customName = field_BeneficiaryFirstName
     // $("#customer_Name").text(`Hi ${field_BeneficiaryFirstName}. Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request.`)
-    if(  beneficiaryCount ==1 ) {
+    if (beneficiaryCount == 1) {
       $("#customer_Name").text(`Hi ${field_BeneficiaryFirstName}. Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request.`)
-    }else {
+    } else {
       $("#customer_Name").text(`Hang in there as we process your request. Expect an SMS from us within 7 to 10 working days on the status of your request.`)
     }
     console.log('beneficiaryCount 1738---', beneficiaryCount)
@@ -1959,7 +1959,7 @@ file1.onchange = async function (e) {
           let fileName = referenceNumber + "-" + docType + "-" + tranType
 
           let accident = {}
-          ;(accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Death certificate of the deceased")
+            ; (accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Death certificate of the deceased")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -1970,7 +1970,7 @@ file1.onchange = async function (e) {
           let fileName = referenceNumber + "-" + docType + "-" + tranType
 
           let accident = {}
-          ;(accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Death certificate of the deceased")
+            ; (accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Death certificate of the deceased")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2021,7 +2021,7 @@ file2.onchange = async function (e) {
           let fileName = referenceNumber + "-" + docType + "-" + tranType
 
           let accident = {}
-          ;(accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Police Investigation Report")
+            ; (accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Police Investigation Report")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2032,7 +2032,7 @@ file2.onchange = async function (e) {
           let fileName = referenceNumber + "-" + docType + "-" + tranType
 
           let accident = {}
-          ;(accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Police Investigation Report")
+            ; (accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Police Investigation Report")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2084,7 +2084,7 @@ file3.onchange = async function (e) {
           let fileName = referenceNumber + "-" + docType + "-" + tranType
 
           let accident = {}
-          ;(accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimants valid Government ID (Front)")
+            ; (accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimants valid Government ID (Front)")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2095,7 +2095,7 @@ file3.onchange = async function (e) {
           let fileName = referenceNumber + "-" + docType + "-" + tranType
 
           let accident = {}
-          ;(accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimants valid Government ID (Front)")
+            ; (accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimants valid Government ID (Front)")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2146,7 +2146,7 @@ file4.onchange = async function (e) {
           let fileName = referenceNumber + "-" + docType + "-" + tranType
 
           let accident = {}
-          ;(accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimants valid Government ID (Back)")
+            ; (accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimants valid Government ID (Back)")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2157,7 +2157,7 @@ file4.onchange = async function (e) {
           let fileName = referenceNumber + "-" + docType + "-" + tranType
 
           let accident = {}
-          ;(accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimants valid Government ID (Back)")
+            ; (accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimants valid Government ID (Back)")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2208,7 +2208,7 @@ file5.onchange = async function (e) {
           let fileName = referenceNumber + "-" + docType + "-" + tranType
 
           let accident = {}
-          ;(accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Marriage Contract")
+            ; (accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Marriage Contract")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2220,7 +2220,7 @@ file5.onchange = async function (e) {
           let fileName = referenceNumber + "-" + docType + "-" + tranType
 
           let accident = {}
-          ;(accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Marriage Contract")
+            ; (accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Marriage Contract")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2271,7 +2271,7 @@ file6.onchange = async function (e) {
           let fileName = referenceNumber + "-" + docType + "-" + tranType
 
           let accident = {}
-          ;(accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimant Birth Certificate")
+            ; (accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimant Birth Certificate")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2282,7 +2282,7 @@ file6.onchange = async function (e) {
           let fileName = referenceNumber + "-" + docType + "-" + tranType
 
           let accident = {}
-          ;(accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimant Birth Certificate")
+            ; (accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimant Birth Certificate")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2334,7 +2334,7 @@ file7.onchange = async function (e) {
 
           let accident = {}
 
-          ;(accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Proof of Bank Account")
+            ; (accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Proof of Bank Account")
 
           addFileToList(accident, `${fileName}.pdf`)
 
@@ -2347,7 +2347,7 @@ file7.onchange = async function (e) {
 
           let accident = {}
 
-          ;(accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Proof of Bank Account")
+            ; (accident["beneficiaryNo"] = beneficiaryCount), (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Proof of Bank Account")
 
           addFileToList(accident, `${fileName}.pdf`)
 
@@ -2400,7 +2400,7 @@ file8.onchange = async function (e) {
 
           let accident = {}
           accident["beneficiaryNo"] = beneficiaryCount
-          ;(accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Proof of Bank Account")
+            ; (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Proof of Bank Account")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2412,7 +2412,7 @@ file8.onchange = async function (e) {
 
           let accident = {}
           accident["beneficiaryNo"] = beneficiaryCount
-          ;(accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Proof of Bank Account")
+            ; (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Proof of Bank Account")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2464,7 +2464,7 @@ file9.onchange = async function (e) {
 
           let accident = {}
           accident["beneficiaryNo"] = beneficiaryCount
-          ;(accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimants valid Government ID (Front)")
+            ; (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimants valid Government ID (Front)")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2476,7 +2476,7 @@ file9.onchange = async function (e) {
 
           let accident = {}
           accident["beneficiaryNo"] = beneficiaryCount
-          ;(accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimants valid Government ID (Front)")
+            ; (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimants valid Government ID (Front)")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2528,7 +2528,7 @@ file10.onchange = async function (e) {
 
           let accident = {}
           accident["beneficiaryNo"] = beneficiaryCount
-          ;(accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimants valid Government ID (Back)")
+            ; (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimants valid Government ID (Back)")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2540,7 +2540,7 @@ file10.onchange = async function (e) {
 
           let accident = {}
           accident["beneficiaryNo"] = beneficiaryCount
-          ;(accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimants valid Government ID (Back)")
+            ; (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimants valid Government ID (Back)")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2592,7 +2592,7 @@ file11.onchange = async function (e) {
 
           let accident = {}
           accident["beneficiaryNo"] = beneficiaryCount
-          ;(accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Marriage Contract")
+            ; (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Marriage Contract")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2604,7 +2604,7 @@ file11.onchange = async function (e) {
 
           let accident = {}
           accident["beneficiaryNo"] = beneficiaryCount
-          ;(accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Marriage Contract")
+            ; (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Marriage Contract")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2656,7 +2656,7 @@ file12.onchange = async function (e) {
 
           let accident = {}
           accident["beneficiaryNo"] = beneficiaryCount
-          ;(accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimant Birth Certificate")
+            ; (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimant Birth Certificate")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -2668,7 +2668,7 @@ file12.onchange = async function (e) {
 
           let accident = {}
           accident["beneficiaryNo"] = beneficiaryCount
-          ;(accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimant Birth Certificate")
+            ; (accident["filename"] = `${fileName}.pdf`), (accident["docType"] = "PDF"), (accident["docTypeCode"] = docType), (accident["documentDescription"] = "Claimant Birth Certificate")
 
           addFileToList(accident, `${fileName}.pdf`)
           const formData = new FormData()
@@ -3688,7 +3688,7 @@ function handleAccountInfo(event) {
       upload_file_7: file7.value
     }
     let beneficiaryAccount = {}
-    ;(beneficiaryAccount["beneficiaryNo"] = beneficiaryCount), (beneficiaryAccount["bankName"] = field_Bank), (beneficiaryAccount["bankBranch"] = field_Branch), (beneficiaryAccount["accountNumber"] = field_AccountNumber), (beneficiaryAccount["accountName"] = field_AccountName), (beneficiaryAccount["accountCurrency"] = $("select#from_currency option").filter(":selected").val()), BankDetailsList.push(beneficiaryAccount)
+      ; (beneficiaryAccount["beneficiaryNo"] = beneficiaryCount), (beneficiaryAccount["bankName"] = field_Bank), (beneficiaryAccount["bankBranch"] = field_Branch), (beneficiaryAccount["accountNumber"] = field_AccountNumber), (beneficiaryAccount["accountName"] = field_AccountName), (beneficiaryAccount["accountCurrency"] = $("select#from_currency option").filter(":selected").val()), BankDetailsList.push(beneficiaryAccount)
     $("#step1").addClass("done")
     $("#step2").addClass("active")
     $("#step2>div").addClass("active")
@@ -3924,7 +3924,7 @@ function addBenificiaryAccountInfo(event) {
       }
 
       let beneficiaryAccount = {}
-      ;(beneficiaryAccount["beneficiaryNo"] = beneficiaryCount), (beneficiaryAccount["bankName"] = field_addBenificiaryBank), (beneficiaryAccount["bankBranch"] = field_addBeneficiaryBranch), (beneficiaryAccount["accountNumber"] = field_addBenificiaryAccountNumber), (beneficiaryAccount["accountName"] = field_addBenificiaryAccountName), (beneficiaryAccount["accountCurrency"] = $("select#from_addBeneficiarycurrency option").filter(":selected").val()), BankDetailsList.push(beneficiaryAccount)
+        ; (beneficiaryAccount["beneficiaryNo"] = beneficiaryCount), (beneficiaryAccount["bankName"] = field_addBenificiaryBank), (beneficiaryAccount["bankBranch"] = field_addBeneficiaryBranch), (beneficiaryAccount["accountNumber"] = field_addBenificiaryAccountNumber), (beneficiaryAccount["accountName"] = field_addBenificiaryAccountName), (beneficiaryAccount["accountCurrency"] = $("select#from_addBeneficiarycurrency option").filter(":selected").val()), BankDetailsList.push(beneficiaryAccount)
       /* accountUploadDataReset(); */
 
       if (buttonCount == 1) {
