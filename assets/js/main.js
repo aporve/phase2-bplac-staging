@@ -1189,6 +1189,7 @@ function displayDateForClaimStatus() {
     var time = parts[3];
     var finalDate = day + ' ' + date.getDate() + ' ' + mnthDate + year + ' at ' + time;
     document.getElementById("displayDt").innerHTML = finalDate
+    console.error('finalDate---', finalDate);
 }
 
 
